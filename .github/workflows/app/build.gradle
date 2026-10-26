@@ -1,0 +1,17 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'com.luxora.app'
+    compileSdk 34
+    defaultConfig {
+        applicationId 'com.luxora.app'
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName '2.3'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}

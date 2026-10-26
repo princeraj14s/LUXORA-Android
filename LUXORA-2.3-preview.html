@@ -1,0 +1,562 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>LUXORA 2.3 — Signature Sound & Creative Studio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Poppins:wght@500&family=Space+Grotesk:wght@500&family=Orbitron:wght@600&family=Rajdhani:wght@600&family=Audiowide&family=Playfair+Display:wght@500&family=Cinzel:wght@500&family=Cormorant+Garamond:wght@600&family=Pacifico&family=Dancing+Script:wght@600&family=Caveat:wght@600&family=Bebas+Neue&family=Anton&family=Righteous&display=swap">
+<style>
+:root{--ac1:#7c3aed;--ac2:#4f46e5;--acl:#a78bfa;--pd:16px;--bg:#070816;--card:#12132a;--fg:#f4f1ff;--mut:#9892bd;--line:#ffffff1c;--g:linear-gradient(135deg,#c084fc,#6366f1 55%,#38bdf8);--cw:210px}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+body{background:radial-gradient(120% 60% at 50% 0,#1d1442,#070816 60%) fixed;color:var(--fg);font:15px/1.4 system-ui,sans-serif;padding-top:env(safe-area-inset-top,0px)}
+#main{padding:8px 16px 110px;max-width:640px;margin:auto}
+.tb{display:none}
+.top{display:flex;align-items:center;justify-content:space-between;padding:6px 0 12px}
+.lg{display:flex;align-items:center;gap:10px}
+.wm{font-weight:300;letter-spacing:.32em;font-size:20px;background:linear-gradient(90deg,#f0abfc,var(--acl),#60a5fa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.ib{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--fg);font-size:18px}
+h1{font-size:22px}h2{font-size:17px}.mut{color:var(--mut);font-size:13px}
+.q{width:100%;padding:13px 18px;border-radius:16px;border:1px solid var(--line);background:#ffffff0d;color:var(--fg);font:inherit;margin-bottom:14px}
+.seg{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:8px 0 14px}
+.chip{padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:#ffffff0d;color:var(--fg);font:inherit;font-size:13px;white-space:nowrap;min-height:40px}
+.chip.on{background:linear-gradient(135deg,var(--ac1),var(--ac2));border-color:var(--acl)}
+.hd{display:flex;justify-content:space-between;align-items:center;margin:20px 0 10px}.hd button{background:none;border:0;color:var(--acl);font:inherit;min-height:40px}
+.row{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none}
+.c{position:relative;border-radius:18px;overflow:hidden;cursor:pointer;flex:none;background:#111;border:1px solid var(--line)}
+.row .c{width:112px;aspect-ratio:3/4}.row .c.t{width:130px;aspect-ratio:9/16}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.grid .c{aspect-ratio:3/4}
+.grid.l{grid-template-columns:repeat(2,1fr)}.grid.l .c{aspect-ratio:9/14}
+.im{position:absolute;inset:0;background-size:cover;background-position:center}
+.n{position:absolute;left:9px;right:9px;bottom:8px;font-weight:600;font-size:12px;color:#fff;text-shadow:0 1px 6px #000}
+.hr{position:absolute;top:5px;right:5px;width:36px;height:36px;border-radius:50%;border:0;background:#0006;color:#fff;font-size:15px}
+.live::after{content:"";position:absolute;inset:-30%;background:radial-gradient(circle,#fff5 0 1px,transparent 1.6px) 0 0/57px 57px;animation:dr 14s linear infinite;pointer-events:none}
+.live .im{animation:kb 12s ease-in-out infinite alternate}
+@keyframes dr{to{transform:translate(38px,76px)}}@keyframes kb{to{transform:scale(1.14)}}
+body.bs .live::after,body.bs .live .im{animation:none}
+@media(prefers-reduced-motion:reduce){.live::after,.live .im{animation:none}}
+.car{position:relative;display:flex;gap:10px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 calc(-1*var(--pd));padding:18px calc(50% + var(--pd) - var(--cw)/2) 22px;overscroll-behavior-x:contain}
+.ci{flex:none;width:var(--cw);aspect-ratio:3/4.3;scroll-snap-align:center;border-radius:22px;position:relative;overflow:hidden;border:1px solid color-mix(in srgb,var(--acl) 45%,transparent);box-shadow:0 0 22px color-mix(in srgb,var(--ac1) 33%,transparent);cursor:pointer;will-change:transform}
+.ci:not(.cur) .n,.ci:not(.cur) small,.ci:not(.cur) .vb{opacity:0}.lk{background:none;border:0;color:var(--fg);font:inherit;min-height:44px;padding:0 8px}
+.ci .n{font-size:20px;bottom:62px;text-align:center}.ci small{position:absolute;left:0;right:0;bottom:42px;text-align:center;font-size:11px;color:#ddd}
+.vb{position:absolute;left:50%;transform:translateX(-50%);bottom:8px;border:0;border-radius:999px;padding:6px 26px;background:linear-gradient(135deg,var(--ac1),var(--ac2));color:#fff;font-size:12px}
+.ban{position:relative;height:190px;border-radius:20px;overflow:hidden;margin-bottom:6px}.ban .t2{position:absolute;left:20px;bottom:18px}
+.btn{background:var(--g);color:#fff;border:0;border-radius:999px;padding:12px 22px;font:inherit;font-weight:600;min-height:48px}.btn.o{background:#ffffff10;border:1px solid var(--line)}
+.cir{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;text-align:center;font-size:12px}
+.cir div{cursor:pointer}.cir i{display:block;aspect-ratio:1;border-radius:50%;background-size:cover;border:2px solid var(--acl)aa;margin-bottom:6px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:12px}
+.tg{width:52px;height:30px;border-radius:15px;border:0;background:#444;position:relative;flex:none}.tg::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:.2s}.tg.on{background:var(--ac1)}.tg.on::after{left:25px}
+nav{position:fixed;bottom:0;left:0;right:0;z-index:5;display:flex;justify-content:space-around;align-items:flex-end;background:#0a0a1ee8;backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:6px 2px calc(6px + env(safe-area-inset-bottom,0px))}
+nav button{background:none;border:0;color:var(--mut);font:inherit;font-size:11px;min-width:54px;min-height:48px;display:flex;flex-direction:column;align-items:center;gap:2px}nav button i{font-style:normal;font-size:19px}nav button.on{color:var(--acl);font-weight:700}
+nav .cb{width:60px;height:60px;min-height:0;border-radius:50%;margin-top:-26px;background:radial-gradient(#221a52,#0b0a22);border:2px solid var(--acl);box-shadow:0 0 18px color-mix(in srgb,var(--acl) 60%,transparent);justify-content:center}
+.sbl{display:none}
+.full{position:fixed;inset:0;z-index:20;background:var(--bg);overflow:auto}
+.dt{min-height:100%;display:flex;flex-direction:column}.dimg{position:relative;height:56vh;overflow:hidden;flex:none}
+.back{position:absolute;top:calc(10px + env(safe-area-inset-top,0px));left:12px;z-index:3;width:46px;height:46px;border-radius:50%;border:0;background:#0007;color:#fff;font-size:20px}
+.fv{position:absolute;top:calc(10px + env(safe-area-inset-top,0px));right:12px;z-index:3;width:46px;height:46px;border-radius:50%;border:0;background:#0007;color:#fff;font-size:20px}
+.di{padding:18px}.acts{display:flex;gap:10px;margin:14px 0}.acts .btn{flex:1}
+#t{position:fixed;left:50%;bottom:100px;transform:translateX(-50%);background:#000e;color:#fff;padding:12px 18px;border-radius:14px;z-index:40;max-width:88%;text-align:center;display:none}
+@media(min-width:760px){
+:root{--cw:250px;--pd:24px}.ph{display:none!important}.tb{display:block}nav button.tb{display:flex}
+body{padding-left:220px}#main{max-width:1000px;padding:20px 24px}
+nav{top:0;right:auto;width:220px;bottom:0;flex-direction:column;justify-content:flex-start;align-items:stretch;gap:4px;padding:18px 12px;border-top:0;border-right:1px solid var(--line)}
+nav button{flex-direction:row;font-size:14px;gap:12px;padding:0 14px;border-radius:12px;justify-content:flex-start;min-height:46px}nav button.on{background:color-mix(in srgb,var(--ac1) 25%,transparent)}
+.sbl{display:flex;align-items:center;gap:10px;margin-bottom:18px;padding:0 6px}.sbl .wm{font-size:17px}
+.row .c{width:150px}.grid{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}.grid.l{grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
+.dt{flex-direction:row}.dimg{height:auto;flex:1}.di{flex:1;padding:70px 32px}}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1{font-weight:600;letter-spacing:-.01em}h2{font-weight:600;font-size:16px}
+.c,.ci{border:1px solid #ffffff14;box-shadow:0 8px 24px #0006}
+.c::before,.ci::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(transparent 55%,#000b);pointer-events:none}
+.n,.hr,.vb,.ci small{z-index:2}.n{font-weight:500;letter-spacing:.01em}
+.hr,.ib,.back,.fv{display:flex;align-items:center;justify-content:center;background:#ffffff12;backdrop-filter:blur(10px);border:1px solid #ffffff22;color:#fff}
+.ib{color:var(--fg)}.hr{background:#0004}
+.chip{font-size:12.5px;font-weight:500;background:#ffffff0a;padding:8px 16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;letter-spacing:.02em;box-shadow:0 6px 20px #6366f155}.btn.o{box-shadow:none;background:#ffffff0a}
+.lk{display:inline-flex;align-items:center;gap:8px;color:var(--mut)}
+.ci{box-shadow:0 0 0 1px color-mix(in srgb,var(--acl) 40%,transparent),0 14px 40px color-mix(in srgb,var(--ac1) 33%,transparent)}.ci .n{font-weight:600;letter-spacing:.03em}
+.dimg::after{content:"";position:absolute;inset:auto 0 0;height:30%;background:linear-gradient(transparent,var(--bg));z-index:1}
+nav button svg{display:block}.live::after{opacity:.45}
+@media(min-width:760px){.dimg::after{display:none}}
+body{font-family:Outfit,Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+.qa{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;margin:2px 0 6px}
+.qa button{background:none;border:0;color:var(--fg);font:inherit;font-size:11.5px;display:flex;flex-direction:column;align-items:center;gap:7px;min-width:64px}
+.qa i{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(#12132a,#12132a) padding-box,var(--g) border-box;border:1.5px solid transparent;color:#d8ccff}
+.fgrid{display:grid;gap:16px;grid-template-columns:minmax(0,1fr)}.fgrid>div{min-width:0}
+#lvc{position:absolute;inset:0;width:100%;height:100%}
+.pbtn{width:46px;height:46px;border-radius:50%;border:0;background:var(--g);color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.fpv{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/5;max-height:68vh;width:100%;border:1px solid var(--line)}
+.fcl{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;text-shadow:0 2px 16px #0008;padding:0 14px;word-break:break-word}
+.fcl .ctm{font-size:1.9em;line-height:1;font-weight:500}.fcl .cdt{font-size:.36em;opacity:.9;margin:.5em 0 1em}.fcl .ccu{font-size:.62em}
+.fr{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border-radius:16px;border:1px solid var(--line);background:#ffffff08;margin-bottom:8px;cursor:pointer}
+.fr.on{border-color:var(--acl);background:color-mix(in srgb,var(--ac1) 13%,transparent)}.fr .smp{font-size:20px;margin-top:4px}.fr .hr2{background:none;border:0;color:var(--fg);width:44px;height:44px;display:flex;align-items:center;justify-content:center;flex:none}
+.sw{width:34px;height:34px;border-radius:50%;border:2px solid #ffffff55;flex:none;padding:0}.sw.on{outline:2px solid var(--acl);outline-offset:2px}
+input[type=range]{width:100%;accent-color:var(--acl);margin:8px 0 14px}
+.ig{position:absolute;inset:0;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:16px 12px;padding:22px 18px;align-content:center}
+.ia{text-align:center;font-size:11px;color:#fff;text-shadow:0 1px 4px #000}
+.ico{aspect-ratio:1;border-radius:24%;display:grid;place-items:center;margin-bottom:5px}.ico svg{width:52%;height:52%}
+.pk0{background:#0a0a1ae6;color:hsl(var(--h) 100% 72%);border:1px solid hsl(var(--h) 100% 65% / .8);box-shadow:0 0 12px hsl(var(--h) 100% 60% / .55)}
+.pk1{background:linear-gradient(135deg,#ffffff44,#ffffff12);backdrop-filter:blur(10px);border:1px solid #ffffff55;color:#fff}
+.pk2{background:#f6f5f2;color:#161616}
+.pk3{background:linear-gradient(135deg,hsl(var(--h) 85% 62%),hsl(calc(var(--h) + 50) 85% 50%));color:#fff}
+
+/* LUXORA 2.3 visible upgrade: Sound Lab */
+.sound-launch{display:flex;align-items:center;gap:13px;position:relative;overflow:hidden;background:linear-gradient(120deg,#211044e8,#121b3be8 65%,#102a3ae8);border:1px solid #a78bfa55}
+.sound-launch:after{content:"";position:absolute;width:180px;height:180px;right:-65px;top:-90px;border-radius:50%;background:radial-gradient(circle,#22d3ee55,transparent 68%);pointer-events:none}
+.sound-launch-icon{width:54px;height:54px;flex:none;border-radius:17px;display:grid;place-items:center;font-size:25px;background:linear-gradient(145deg,#a855f7,#4f46e5 55%,#06b6d4);box-shadow:0 8px 28px #7c3aed55}
+.sound-launch-copy{flex:1;min-width:0}.sound-launch-copy p{margin-top:4px}
+.sound-hero{position:relative;overflow:hidden;padding:20px;border-radius:22px;margin:10px 0 16px;background:linear-gradient(125deg,#20123d,#151d3d 58%,#102c3a);border:1px solid #a78bfa55}
+.sound-hero:before{content:"";position:absolute;width:210px;height:210px;right:-70px;top:-100px;border-radius:50%;background:radial-gradient(circle,#8b5cf677,transparent 68%);pointer-events:none}
+.sound-hero h2{font-size:23px;letter-spacing:-.03em;margin:8px 0 5px}.sound-hero p{max-width:520px;color:#c5c1df;font-size:13px}
+.sound-kicker{font-size:10px;letter-spacing:.18em;font-weight:700;color:#c4b5fd;text-transform:uppercase}
+.sound-stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.sound-stats span{font-size:11px;border:1px solid #ffffff20;background:#ffffff0b;padding:7px 10px;border-radius:99px;color:#e7e3ff}
+.sound-row{display:flex;align-items:center;gap:11px;padding:12px;border-radius:18px;border:1px solid #ffffff18;background:linear-gradient(120deg,#ffffff0b,#ffffff04);margin-bottom:9px;min-width:0}
+.sound-art{width:48px;height:48px;flex:none;border-radius:15px;display:flex;align-items:center;justify-content:center;background:linear-gradient(140deg,#a855f7,#4f46e5 55%,#06b6d4);color:#fff;box-shadow:0 5px 18px #4f46e533}
+.sound-wave{height:24px;display:flex;align-items:center;gap:3px;margin-top:5px;opacity:.8;overflow:hidden}
+.sound-wave i{display:block;width:3px;min-width:3px;border-radius:5px;background:linear-gradient(180deg,#67e8f9,#a78bfa);height:var(--h)}
+.sound-actions{display:flex;gap:5px;align-items:center;flex:none}.sound-actions .chip{padding:7px 10px;min-height:36px}
+@media(min-width:760px){#main{max-width:1000px;padding-left:26px;padding-right:26px}.sound-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px}.sound-hero{padding:26px}.sound-hero h2{font-size:29px}.sound-row{min-height:84px}}
+@media(max-width:390px){.sound-row{gap:8px;padding:9px}.sound-art{width:42px;height:42px}.sound-actions .chip{padding:6px 8px;font-size:11px}}
+
+@media(min-width:760px){.fgrid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;margin:0 calc(-1*var(--pd));padding:8px var(--pd) 12px;background:#070816b8;backdrop-filter:blur(16px)}
+.pg{animation:fi .3s ease backwards}@keyframes fi{from{opacity:0;transform:translateY(10px)}}
+.full{animation:up .28s cubic-bezier(.2,.8,.2,1)}@keyframes up{from{opacity:0;transform:translateY(24px)}}
+.btn,.chip,.c,.pr,.fr{transition:transform .15s}.btn:active,.chip:active,.c:active,.pr:active,.fr:active{transform:scale(.97)}
+nav button.on::after{content:"";width:18px;height:3px;border-radius:2px;background:var(--acl);margin-top:1px}nav .cb.on::after{display:none}
+@media(prefers-reduced-motion:reduce){.pg,.full{animation:none}}
+.phd{display:flex;gap:14px;align-items:center}.av{width:64px;height:64px;border-radius:50%;background:var(--g);display:grid;place-items:center;font-size:26px;font-weight:600;flex:none}
+.pn{width:100%;background:none;border:0;border-bottom:1px solid var(--line);color:var(--fg);font:inherit;font-size:19px;font-weight:600;padding:4px 0;outline:none}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}.stats div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;text-align:center}.stats b{display:block;font-size:20px}.stats span{font-size:12px;color:var(--mut)}
+.pr{width:100%;display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px 14px;margin-bottom:8px;color:var(--fg);font:inherit;text-align:left;min-height:56px}
+.pi{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--ac1) 25%,transparent);color:var(--acl);flex:none}.pt{flex:1}.pt b{display:block;font-weight:500}.pt small{color:var(--mut);font-size:12px}.pr>svg{color:var(--mut)}
+.sec{margin:20px 0 10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);font-weight:500}.rw{display:flex;justify-content:space-between;align-items:center;gap:12px}
+@media(min-width:760px){nav .cb{display:none}nav button.on::after{display:none}.top{margin:0 -24px;padding:8px 24px 12px}}
+.pw{container-type:inline-size;flex:none;width:236px}
+.pm{position:relative;width:100%;aspect-ratio:9/19;border-radius:11cqw;border:2.2cqw solid #0b0b12;overflow:hidden;background:#000;box-shadow:0 18px 40px #0008,0 0 0 1px #ffffff26;color:#fff;font-family:"Space Grotesk",Outfit,system-ui,sans-serif}
+.pm::after{content:"";position:absolute;top:2.4cqw;left:50%;width:3cqw;height:3cqw;border-radius:50%;background:#000;transform:translateX(-50%);z-index:6}
+.pm .bgi{position:absolute;inset:0;background-size:cover;background-position:center}.pm .in{position:absolute;inset:0;padding:3.5cqw 5cqw;z-index:2}
+.pm .ico svg{width:52%;height:52%}.sb{display:flex;justify-content:space-between;align-items:center;font-size:3.5cqw;padding:0 2cqw}.sb svg{width:4.4cqw;height:4.4cqw;vertical-align:middle}
+.gl{background:#ffffff1f;border:.3cqw solid #ffffff33;backdrop-filter:blur(3cqw);-webkit-backdrop-filter:blur(3cqw);border-radius:5cqw}
+.nt{display:flex;gap:3cqw;align-items:center;padding:2.6cqw 3cqw}.nt b{font-size:3.7cqw;font-weight:600}.nt div div{font-size:3.2cqw;opacity:.8}.nt span{margin-left:auto;font-size:2.8cqw;opacity:.7}
+.shc{position:absolute;bottom:9cqw;width:11cqw;height:11cqw;border-radius:50%;display:grid;place-items:center;background:#ffffff26;border:.3cqw solid #ffffff44;backdrop-filter:blur(3cqw)}.shc svg{width:5cqw;height:5cqw}
+.hb{position:absolute;bottom:2.6cqw;left:50%;width:30cqw;height:1cqw;border-radius:1cqw;background:#fff;opacity:.7;transform:translateX(-50%)}
+.rw3{display:flex;gap:3cqw;align-items:center;padding:2.6cqw 0;border-bottom:.3cqw solid #ffffff14}.rw3:last-child{border:0}.rw3 b{font-size:3.9cqw;font-weight:500}.rw3 div div{font-size:3cqw;opacity:.65}
+.mt{width:11cqw;height:6cqw;border-radius:6cqw;background:linear-gradient(90deg,#22d3ee,#7c3aed);position:relative}.mt::after{content:"";position:absolute;right:.8cqw;top:.8cqw;width:4.4cqw;height:4.4cqw;border-radius:50%;background:#fff}
+.on3{background:linear-gradient(135deg,#22d3ee,#7c3aed);color:#fff}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#12132af5;backdrop-filter:blur(16px);border-radius:22px 22px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);max-height:70vh;overflow:auto;animation:up .25s ease}
+.crn{position:absolute;top:8px;left:8px;z-index:3;color:#f5d37a;background:#0009;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;border:1px solid #f5d37a66}
+.gd{color:#f5d37a;display:inline-flex;vertical-align:middle}.gold{background:linear-gradient(135deg,#f5d37a1f,#b8860b10);border:1px solid #f5d37a55}
+.plan{width:100%;text-align:left;display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;color:var(--fg);font:inherit;margin-bottom:10px}
+.plan.best{border-color:#f5d37a;box-shadow:0 0 0 1px #f5d37a55}.plan b{font-size:18px}.tag{background:#f5d37a;color:#2a1c00;border-radius:999px;font-size:11px;font-weight:600;padding:3px 10px;margin-left:8px;vertical-align:middle}
+
+/* LUXORA 2.0 visual polish */
+:root{--lux-glass:rgba(255,255,255,.055)}
+body{background-color:#060713;background-image:radial-gradient(ellipse at 12% -5%,#33205e 0,transparent 38%),radial-gradient(ellipse at 100% 18%,#101f48 0,transparent 32%),linear-gradient(180deg,#080817,#060713 65%)}
+#main{padding-top:12px}
+.q{background:rgba(255,255,255,.055);border-color:rgba(190,170,255,.17);box-shadow:inset 0 1px rgba(255,255,255,.035);transition:border-color .2s,box-shadow .2s}
+.q:focus{outline:none;border-color:var(--acl);box-shadow:0 0 0 3px color-mix(in srgb,var(--acl) 17%,transparent)}
+.box{background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.025));box-shadow:0 12px 28px #0002;backdrop-filter:blur(16px)}
+.chip,.ib,.hr,.back,.fv{transition:transform .18s ease,border-color .18s ease,background .18s ease}
+.chip:active,.ib:active,.btn:active,.hr:active{transform:scale(.97)}
+.btn{position:relative;overflow:hidden}
+.btn:not(.o)::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 25%,#ffffff35 48%,transparent 68%);transform:translateX(-120%);transition:transform .6s}
+.btn:not(.o):hover::after{transform:translateX(120%)}
+.lux-spot{isolation:isolate;position:relative;display:flex;align-items:center;min-height:188px;overflow:hidden;border-radius:24px;margin:14px 0 18px;padding:20px 16px;border:1px solid #c4b5fd38;background:linear-gradient(120deg,#19132e 0%,#17142f 48%,#0e2340 100%);box-shadow:0 18px 38px #0004,inset 0 1px #ffffff12}
+.lux-spot-glow{position:absolute;z-index:-1;width:180px;height:180px;border-radius:50%;right:4%;top:-50px;background:#8b5cf6;filter:blur(65px);opacity:.48}
+.lux-spot-copy{position:relative;z-index:2;max-width:72%}
+.lux-eyebrow{font-size:9px;font-weight:700;letter-spacing:.2em;color:#c4b5fd}
+.lux-spot h2{font-size:25px;letter-spacing:-.04em;margin:7px 0 5px}
+.lux-spot p{font-size:12px;line-height:1.5;color:#c4c0df;margin-bottom:13px;max-width:250px}
+.lux-spot .btn{min-height:42px;padding:10px 14px;font-size:12px;white-space:nowrap}
+.lux-orb{position:absolute;right:-7px;top:50%;transform:translateY(-50%);width:112px;height:142px;display:grid;place-items:center;pointer-events:none}
+.lux-orb:before,.lux-orb:after{content:"";position:absolute;border:1px solid #c4b5fd6e;border-radius:50%;width:92px;height:92px;transform:rotate(-25deg) scaleY(.42)}
+.lux-orb:after{width:112px;height:112px;transform:rotate(52deg) scaleY(.42);border-color:#67e8f988}
+.lux-orb span{font-size:54px;color:#e9d5ff;text-shadow:0 0 28px #c084fc;animation:luxfloat 4s ease-in-out infinite}
+.lux-orb i,.lux-orb b{position:absolute;width:7px;height:7px;border-radius:50%;background:#67e8f9;box-shadow:0 0 14px #67e8f9;top:25px;right:31px}
+.lux-orb b{width:5px;height:5px;top:auto;right:auto;bottom:23px;left:20px;background:#f0abfc;box-shadow:0 0 12px #f0abfc}
+@keyframes luxfloat{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-7px) rotate(5deg)}}
+nav{background:rgba(8,8,24,.88);box-shadow:0 -10px 35px #0002}
+@media(min-width:760px){.lux-spot{min-height:210px;padding:28px 30px}.lux-spot-copy{max-width:68%}.lux-spot h2{font-size:32px}.lux-orb{right:7%;transform:translateY(-50%) scale(1.25)}}
+@media(prefers-reduced-motion:reduce){.lux-orb span{animation:none}.btn:not(.o)::after{display:none}}
+
+
+.photo-launch{display:flex;align-items:center;gap:12px;margin:12px 0 18px;padding:14px;border-color:#a78bfa35;background:linear-gradient(120deg,#17142c,#101c32)}
+.photo-launch-icon{flex:0 0 42px;height:42px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,#a855f7,#38bdf8);font-size:22px;box-shadow:0 0 24px #8b5cf644}
+.photo-launch-copy{flex:1;min-width:0}.photo-launch-copy b{font-size:13px}.photo-launch-copy p{font-size:11px;margin-top:3px}.photo-launch .btn{padding:10px 12px;min-height:38px;font-size:11px;white-space:nowrap}
+.photo-studio{position:fixed;inset:0;z-index:30;overflow:auto;background:radial-gradient(90% 50% at 50% 0,#25164b,#070816 65%);padding:18px 16px calc(24px + env(safe-area-inset-bottom,0px))}
+.photo-studio[hidden]{display:none}.ps-wrap{max-width:760px;margin:auto}.ps-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.ps-head h2{font-size:20px}.ps-preview{position:relative;overflow:hidden;width:min(100%,360px);aspect-ratio:9/16;margin:0 auto 18px;border-radius:24px;background:#11152b;border:1px solid #ffffff24;box-shadow:0 20px 60px #0007}.ps-preview img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(var(--pb,1)) contrast(var(--pc,1)) saturate(var(--ps,1)) hue-rotate(var(--ph,0deg)) blur(var(--pbl,0px))}.ps-controls{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ps-control{padding:12px;border:1px solid var(--line);background:#ffffff08;border-radius:14px}.ps-control label{display:flex;justify-content:space-between;gap:8px;font-size:12px;margin-bottom:7px}.ps-control input{width:100%;accent-color:#a78bfa}.ps-actions{display:flex;gap:10px;margin-top:14px}.ps-actions .btn{flex:1}.ps-note{font-size:11px;color:var(--mut);text-align:center;margin:12px 0 0}@media(max-width:420px){.photo-launch{flex-wrap:wrap}.photo-launch-copy{min-width:calc(100% - 58px);}.photo-launch .btn{width:100%}.ps-controls{grid-template-columns:1fr}}
+
+
+/* LUXORA 2.2 — adaptive phone + tablet refinement */
+:root{color-scheme:dark;--lux-radius:22px}
+html{scroll-behavior:smooth}
+body{min-height:100dvh;overscroll-behavior-y:contain}
+button,input,select{font:inherit}
+button{touch-action:manipulation;cursor:pointer}
+button:focus-visible,[role="button"]:focus-visible,input:focus-visible{outline:2px solid #67e8f9;outline-offset:3px}
+img{max-width:100%}
+#main{width:100%;min-width:0}
+.top{border-bottom:1px solid rgba(255,255,255,.045)}
+.hd{gap:12px}
+.hd h2{letter-spacing:-.025em}
+.box,.photo-launch,.lux-spot{border-radius:var(--lux-radius)}
+.grid .c,.row .c,.ci{isolation:isolate}
+.photo-studio[hidden]{display:none!important}
+.photo-studio:not([hidden]){display:block}
+.ps-wrap{width:min(100%,960px);margin:0 auto}
+.ps-preview{max-width:460px;margin:0 auto 18px}
+.ps-actions{position:sticky;bottom:0;padding:12px 0 calc(8px + env(safe-area-inset-bottom,0px));background:linear-gradient(180deg,transparent,#070816 28%)}
+/* Small phones: keep controls comfortably tappable without horizontal overflow. */
+@media(max-width:390px){
+  #main{padding-left:12px;padding-right:12px}
+  .lux-spot{padding:17px 13px;min-height:176px}
+  .lux-spot-copy{max-width:76%}
+  .lux-spot h2{font-size:22px}
+  .lux-orb{right:-22px;transform:translateY(-50%) scale(.88)}
+  .photo-launch{gap:9px;padding:11px}
+  .photo-launch .btn{font-size:10px;padding:9px}
+  nav button{min-width:0;flex:1;font-size:10px}
+  nav .cb{flex:0 0 54px;width:54px}
+  .stats{gap:6px}.stats div{padding:10px 6px}
+}
+/* Tablet: use the available canvas like a studio, not a stretched phone screen. */
+@media(min-width:760px){
+  :root{--pd:28px;--cw:270px}
+  #main{max-width:1360px;padding:24px clamp(24px,3vw,48px) 40px}
+  .top{margin:0 calc(-1 * clamp(24px,3vw,48px));padding-left:clamp(24px,3vw,48px);padding-right:clamp(24px,3vw,48px)}
+  .lux-spot{min-height:238px;padding:32px 36px}
+  .lux-spot h2{font-size:36px}
+  .lux-spot p{font-size:14px;max-width:340px}
+  .lux-orb{transform:translateY(-50%) scale(1.48);right:9%}
+  .hd{margin-top:26px;margin-bottom:14px}
+  .hd h2{font-size:20px}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:14px}
+  .grid.l{grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+  .row{gap:14px}
+  .row .c{width:166px}
+  .box{padding:20px}
+  .photo-studio{padding:28px clamp(24px,4vw,60px) calc(30px + env(safe-area-inset-bottom,0px))}
+  .ps-wrap{display:grid;grid-template-columns:minmax(260px,.9fr) minmax(300px,1.1fr);gap:18px 30px;align-items:start}
+  .ps-head{grid-column:1/-1}
+  .ps-preview{grid-column:1;grid-row:2/4;width:100%;max-width:420px}
+  .ps-controls{grid-column:2;grid-row:2}
+  .ps-actions{grid-column:2;grid-row:3;position:static}
+  .ps-note{grid-column:1/-1}
+}
+@media(min-width:1180px){
+  body{padding-left:244px}
+  nav{width:244px;padding:22px 16px}
+  #main{padding-top:28px}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(205px,1fr))}
+  .row .c{width:182px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+</style></head><body>
+<div id="main"></div><nav id="nav"></nav><div id="ov"></div><div id="photoStudio" class="photo-studio" hidden></div><input id="photoPicker" type="file" accept="image/*" hidden><div id="t"></div>
+<script>
+const $=s=>document.querySelector(s);
+const ld=(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v??d}catch(e){return d}};
+const sv=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+const IC={home:`<path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/>`,search:`<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>`,compass:`<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>`,play:`<circle cx="12" cy="12" r="9"/><path d="M10 8.5l5.5 3.5-5.5 3.5z"/>`,user:`<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>`,heart:`<path d="M12 20s-7-4.6-7-10a4 4 0 017-2.4A4 4 0 0119 10c0 5.4-7 10-7 10z"/>`,back:`<path d="M15 5l-7 7 7 7"/>`,download:`<path d="M12 4v11M7 11l5 5 5-5M5 20h14"/>`,share:`<path d="M12 15V3M7 8l5-5 5 5M5 13v7h14v-7"/>`,sliders:`<path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/>`,palette:`<circle cx="12" cy="12" r="9"/><circle cx="8.5" cy="10" r="1"/><circle cx="12" cy="7.5" r="1"/><circle cx="15.5" cy="10" r="1"/>`};
+Object.assign(IC,{image:`<rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.6"/><path d="M4 18l5-5 4 4 3-3 4 4"/>`,type:`<path d="M5 6V4h14v2M12 4v16M9 20h6"/>`,grid:`<rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/>`,camera:`<path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>`,music:`<path d="M9 18V6l10-2v12"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="16" r="2"/>`,mail:`<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>`,clock:`<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>`,msg:`<path d="M4 5h16v11H9l-5 4z"/>`,calendar:`<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/>`});
+Object.assign(IC,{chev:`<path d="M9 5l7 7-7 7"/>`,shield:`<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>`});
+Object.assign(IC,{bolt:`<path d="M13 3L5 14h6l-1 7 8-11h-6z"/>`,shuffle:`<path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/>`});
+Object.assign(IC,{folder:`<path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>`,check:`<path d="M5 12l5 5 9-10"/>`,wifi:`<path d="M2 9a15 15 0 0120 0M5 12.5a10 10 0 0114 0M8.5 16a5 5 0 017 0"/><circle cx="12" cy="19" r="1"/>`,bell:`<path d="M6 17v-6a6 6 0 0112 0v6l2 2H4zM10 21h4"/>`,sun:`<circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/>`,battery:`<rect x="3" y="8" width="16" height="9" rx="2"/><path d="M21 11v3"/>`,volume:`<path d="M4 10v4h4l5 4V6L8 10z"/><path d="M16 9a4 4 0 010 6"/>`});
+Object.assign(IC,{pause:`<path d="M8 5v14M16 5v14"/>`});
+Object.assign(IC,{crown:`<path d="M3 8l4 4 5-7 5 7 4-4-2 11H5z"/>`});
+const ic=(n,z=22,fl='none')=>`<svg width="${z}" height="${z}" viewBox="0 0 24 24" fill="${fl}" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${IC[n]}</svg>`;
+const hs=on=>on?`<span style="color:#f472b6;display:flex">${ic('heart',18,'currentColor')}</span>`:ic('heart',18);
+const PAL=[['#120a2e','#4b2a7a','#ff7a9c','#ffd9a8','purple'],['#04121f','#0b4a6b','#5eead4','#e0fbff','teal'],['#1a0b1f','#7a2455','#ff9a5a','#ffe3b0','orange'],['#060822','#2b2bb0','#c084fc','#f0e6ff','blue'],['#04170f','#0f5a43','#9ef0c0','#f4ffd9','green'],['#1c0d1a','#8a3a5e','#ffc2a8','#fff0dd','pink'],['#02081a','#0a3a8a','#6fb7ff','#eaf4ff','blue'],['#14040a','#7a1230','#ff6a4d','#ffd2a0','red']];
+const PM={Nature:4,Mountains:1,Ocean:6,Neon:3,'City Nights':3,Fantasy:0,Space:3,Flowers:5,Seasonal:2,Gaming:3,Cars:7,Anime:5,Motorcycles:7};
+const rgb=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16)/255);
+const mx=(a,b,t)=>{const A=rgb(a),B=rgb(b);return'#'+A.map((v,i)=>Math.round((v+(B[i]-v)*t)*255).toString(16).padStart(2,'0')).join('')};
+const ridge=(r,b,a,g)=>{let p=[b+(r()-.5)*a,b+(r()-.5)*a],q;for(let i=0;i<6;i++){q=[];for(let j=0;j<p.length-1;j++)q.push(p[j],(p[j]+p[j+1])/2+(r()-.5)*a);q.push(p[p.length-1]);p=q;a*=g}return p};
+const pth=(p,z)=>p.map((y,i)=>(i?'L':'M')+(i*90/(p.length-1)).toFixed(1)+' '+y.toFixed(1)).join('')+(z?'L90 160L0 160Z':'');
+const C=["Nature","Mountains","Ocean","Space","AMOLED","Abstract","Anime","Gaming","Cars","Motorcycles","Architecture","Minimalist","Aesthetic","Flowers","Animals","Art","Fantasy","Neon","3D Art","Dark","City Nights","Photography","Seasonal","Trending"];
+const TAG={Fantasy:'Step into another world',Nature:'Breathe the beauty of our planet',Space:'Journey beyond the stars',Neon:'Glow after dark',Anime:'Colorful worlds to love',Gaming:'Level up your screen'};
+const KC=['City Nights','Neon','Cars','Motorcycles','Architecture','Gaming','Anime'],KM=['Nature','Mountains','Ocean','Fantasy','Flowers','Animals','Seasonal','Photography','Art'];
+const KS=['Space'];const LC=['Space','Nature','Neon','Abstract','Fantasy','3D Art'];
+const TC=[['Neon Dreams','Neon'],['Natural','Nature'],['Minimal','Minimalist'],['Gaming','Gaming'],['Aesthetic','Aesthetic']];
+const AD=["Aurora","Velvet","Echo","Nova"];
+const W=[...Array(96)].map((_,i)=>{const c=C[i%24],k=Math.floor(i/24),pal=((PM[c]??(i*3+1))+k*2)%8;return{id:i,pal,cat:c,name:(c=='Mountains'&&!k?'Mountain Serenity':AD[k]+' '+c),h:pal,live:LC.includes(c)&&i<48,tags:[c.toLowerCase(),PAL[pal][4]]}});
+W.forEach(w=>w.tags.push(w.live?'live':'static'));
+const rng=s=>()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
+function scene(w){const r=rng(w.id*97+13),[T,M,Hz,Su]=PAL[w.pal],id=w.id,f=n=>n.toFixed(1),K=KM.includes(w.cat)?'m':KC.includes(w.cat)?'c':KS.includes(w.cat)?'s':'g',D=mx(T,'#000',.55);
+const col=(c,a,bf)=>`<filter id='${a}' color-interpolation-filters='sRGB' x='0' y='0' width='100%' height='100%'><feTurbulence type='fractalNoise' baseFrequency='${bf}' numOctaves='4' seed='${id+(a=='n2'?7:0)}'/><feColorMatrix values='0 0 0 0 ${rgb(c)[0].toFixed(2)} 0 0 0 0 ${rgb(c)[1].toFixed(2)} 0 0 0 0 ${rgb(c)[2].toFixed(2)} 1.9 0 0 0 -.78'/></filter>`;
+const bl=(n,s)=>`<filter id='${n}' filterUnits='userSpaceOnUse' x='-30' y='-30' width='150' height='220'><feGaussianBlur stdDeviation='${s}'/></filter>`;
+let o=`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 160' preserveAspectRatio='xMidYMid slice'><defs><linearGradient id='s' x2='0' y2='1'><stop offset='0' stop-color='${T}'/><stop offset='.52' stop-color='${M}'/><stop offset='.84' stop-color='${Hz}'/></linearGradient><linearGradient id='fg' x2='0' y2='1'><stop offset='0' stop-color='${Hz}' stop-opacity='0'/><stop offset='1' stop-color='${Hz}' stop-opacity='.4'/></linearGradient><radialGradient id='v' cx='.5' cy='.45' r='.78'><stop offset='.5' stop-opacity='0'/><stop offset='1' stop-opacity='.6'/></radialGradient>${bl('b1',.5)}${bl('b3',3)}${bl('b9',9)}<filter id='gr' color-interpolation-filters='sRGB' x='0' y='0' width='100%' height='100%'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' seed='${id}'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .15 -.03'/></filter>${col(Hz,'cl','.006 .035')}${col(Su,'nb','.016 .012')}${col(M,'n2','.016 .012')}</defs>`;
+const W9=`width='90' height='160'`;
+if(K=='m'){const sx=18+r()*54,sy=44+r()*14,wt=id%3!=1,L=[];
+o+=`<rect ${W9} fill='url(#s)'/><rect width='90' height='80' filter='url(#cl)' opacity='.5'/><circle cx='${f(sx)}' cy='${f(sy)}' r='24' fill='${Su}' opacity='.35' filter='url(#b9)'/><circle cx='${f(sx)}' cy='${f(sy)}' r='6.5' fill='${Su}'/>`;
+for(let i=0;i<22;i++)o+=`<circle cx='${f(r()*90)}' cy='${f(r()*40)}' r='.25' fill='#fff' opacity='${f(r()*.6)}'/>`;
+for(let j=0;j<3;j++){const p=ridge(r,72+j*13,30-j*5,.52),c=mx(Hz,T,.3+j*.22);L.push(p);
+o+=`<linearGradient id='m${j}' x2='0' y2='1'><stop offset='0' stop-color='${c}'/><stop offset='1' stop-color='${mx(c,T,.6)}'/></linearGradient><path d='${pth(p,1)}' fill='url(#m${j})'${j?'':" filter='url(#b1)'"}/><path d='${pth(p)}' fill='none' stroke='${Su}' stroke-width='.3' opacity='${f(.38-j*.1)}'/><rect y='${78+j*13}' width='90' height='26' fill='url(#fg)'/>`}
+if(wt){o+=`<linearGradient id='wg' x2='0' y2='1'><stop offset='0' stop-color='${mx(Hz,T,.45)}'/><stop offset='1' stop-color='${D}'/></linearGradient><clipPath id='wc'><rect y='112' ${W9}/></clipPath><rect y='112' width='90' height='48' fill='url(#wg)'/><g clip-path='url(#wc)' opacity='.4' filter='url(#b1)'><g transform='translate(0 224) scale(1 -1)'><path d='${pth(L[1],1)}' fill='url(#m1)'/><path d='${pth(L[2],1)}' fill='url(#m2)'/></g></g><rect x='${f(sx-2)}' y='112' width='4' height='40' fill='${Su}' opacity='.28' filter='url(#b1)'/>`;
+for(let i=0;i<9;i++)o+=`<rect x='${f(r()*80)}' y='${f(116+r()*34)}' width='${f(4+r()*12)}' height='.4' fill='${Su}' opacity='.18'/>`}
+const p=ridge(r,wt?146:130,10,.5);o+=`<path d='${pth(p,1)}' fill='${D}'/>`;
+for(let i=0;i<10;i++){const x=r()*90,yb=p[Math.round(x/90*64)],h=7+r()*12;o+=`<path d='M${f(x-1.8)} ${f(yb+1)}L${f(x)} ${f(yb-h)}L${f(x+1.8)} ${f(yb+1)}Z' fill='${D}'/>`}}
+else if(K=='c'){const G=126,sx=20+r()*50;o+=`<rect ${W9} fill='url(#s)'/><rect width='90' height='90' filter='url(#cl)' opacity='.35'/><circle cx='${f(sx)}' cy='60' r='26' fill='${Su}' opacity='.4' filter='url(#b9)'/><circle cx='${f(sx)}' cy='60' r='6' fill='${Su}' opacity='.9'/>`;
+for(let j=0;j<3;j++){const c=mx(Hz,T,.35+j*.28);let g='';for(let x=-2;x<92;){const bw=5+r()*(10-j*1.5),bh=(46-j*10)+r()*(48-j*8),y=G+j*4-bh;g+=`<rect x='${f(x)}' y='${f(y)}' width='${f(bw)}' height='${f(bh+40)}' fill='${c}'/>`;
+if(j)for(let n=0,m=Math.floor(bw*bh/30);n<m;n++)g+=`<rect x='${f(x+.5+r()*(bw-1.6))}' y='${f(y+2+r()*(bh-4))}' width='.7' height='1' fill='${r()<.6?Su:Hz}' opacity='${f(.4+r()*.6)}'/>`;
+if(j==2)g+=`<rect x='${f(x)}' y='${f(y)}' width='.35' height='${f(bh)}' fill='${Hz}' opacity='.55'/>`;x+=bw+.6}
+o+=`<g${j?'':" filter='url(#b1)'"}>${g}</g><rect y='${G-20+j*8}' width='90' height='30' fill='url(#fg)'/>`}
+for(let i=0;i<3;i++){const x=r()*76,y=100+r()*20,cc=r()<.5?Hz:Su;o+=`<rect x='${f(x)}' y='${f(y)}' width='4' height='.9' fill='${cc}' filter='url(#b3)'/><rect x='${f(x)}' y='${f(y)}' width='4' height='.6' fill='${cc}'/>`}
+o+=`<rect y='132' ${W9} fill='${D}'/>`;for(let i=0;i<7;i++){const x=r()*84,cc=r()<.5?Hz:Su;o+=`<rect x='${f(x)}' y='133' width='${f(1.2+r()*2)}' height='${f(16+r()*10)}' fill='${cc}' opacity='.35' filter='url(#b3)'/>`}
+o+=`<path d='M45 132L8 160M45 132L82 160' stroke='${Hz}' stroke-width='.3' opacity='.3'/><rect y='108' width='90' height='40' fill='url(#fg)'/>`}
+else if(K=='s'){o+=`<rect ${W9} fill='${D}'/><rect ${W9} filter='url(#nb)' opacity='.55'/><rect ${W9} filter='url(#n2)' opacity='.5'/>`;
+for(let i=0;i<80;i++)o+=`<circle cx='${f(r()*90)}' cy='${f(r()*160)}' r='${f(.12+r()*.28)}' fill='#fff' opacity='${f(.3+r()*.7)}'/>`;
+for(let i=0;i<9;i++){const x=f(r()*90),y=f(r()*160);o+=`<circle cx='${x}' cy='${y}' r='1.3' fill='${Su}' opacity='.4' filter='url(#b1)'/><circle cx='${x}' cy='${y}' r='.45' fill='#fff'/>`}
+const cx=24+r()*42,cy=42+r()*40,pr=13+r()*8,rg=id%2,X=f(cx),Y=f(cy),R=f(pr);
+o+=`<radialGradient id='pg' cx='.32' cy='.3' r='.9'><stop offset='0' stop-color='${Su}'/><stop offset='.3' stop-color='${Hz}'/><stop offset='.65' stop-color='${M}'/><stop offset='1' stop-color='${mx(T,'#000',.7)}'/></radialGradient><clipPath id='pc'><circle cx='${X}' cy='${Y}' r='${R}'/></clipPath><clipPath id='rf'><rect y='${Y}' ${W9}/></clipPath><circle cx='${X}' cy='${Y}' r='${f(pr*1.07)}' fill='none' stroke='${Hz}' stroke-width='1.6' opacity='.55' filter='url(#b1)'/>`;
+const ring=op=>`<ellipse cx='${X}' cy='${Y}' rx='${f(pr*2)}' ry='${f(pr*.42)}' fill='none' stroke='${Su}' stroke-width='1.3' opacity='${op}' transform='rotate(-20 ${X} ${Y})'/>`;
+if(rg)o+=ring(.35);o+=`<circle cx='${X}' cy='${Y}' r='${R}' fill='url(#pg)'/><g clip-path='url(#pc)'>`;
+for(let i=0;i<5;i++)o+=`<rect x='${f(cx-pr)}' y='${f(cy-pr+i*pr*.42+r()*2)}' width='${f(pr*2)}' height='${f(pr*.12)}' fill='#000' opacity='.12'/>`;
+o+=`<circle cx='${f(cx+pr*.55)}' cy='${f(cy+pr*.4)}' r='${R}' fill='#000' opacity='.45' filter='url(#b3)'/></g>`;
+if(rg)o+=`<g clip-path='url(#rf)'>${ring(.8)}</g>`;
+const p=ridge(r,148,8,.5);o+=`<path d='${pth(p,1)}' fill='#05050a'/><path d='${pth(p)}' fill='none' stroke='${Hz}' stroke-width='.3' opacity='.4'/>`}
+else{o+=`<rect ${W9} fill='${D}'/>`;[M,Hz,Su,M].forEach((c,j)=>{o+=`<circle cx='${f(r()*90)}' cy='${f(r()*160)}' r='${f(22+r()*12)}' fill='${c}' opacity='${j==2?.5:.8}' filter='url(#b9)'/>`});
+o+=`<rect ${W9} filter='url(#nb)' opacity='.25'/>`;for(let i=0;i<2;i++)o+=`<ellipse cx='${f(20+r()*50)}' cy='${f(40+r()*80)}' rx='${f(30+r()*20)}' ry='${f(12+r()*10)}' fill='none' stroke='${Su}' stroke-width='.25' opacity='.22' transform='rotate(${f(r()*80-40)} 45 80)'/>`}
+return o+`<rect ${W9} fill='url(#v)'/><rect ${W9} filter='url(#gr)'/></svg>`}
+const U={};const bg=w=>U[w.id]||(U[w.id]=`url("data:image/svg+xml,${encodeURIComponent(scene(w)).replace(/'/g,'%27')}")`);
+let favs=ld('fv',[]),bs=ld('bs',false);
+let AC=ld('ac',0);let FF=ld('ff',[]);let S={pm:false,pw:null,sc:'All',pl:null,sq:null,ap:false,tap:false,cv:null,cp:false,cd:null,sp:0,ss:4,sn:50,sh:0,ed:false,mood:null,ft:0,ftx:'Your Style',fsz:44,fcol:'#ffffff',fcat:'All',fbg:8,fnote:false,ipk:ld('ip',0),tab:'home',cat:null,q:'',sort:'new',lv:false,n:30,id:null,ex:'All',fav:'W',tm:'All'};
+const lotus=(z,k='lg')=>`<svg width="${z}" height="${z}" viewBox="0 0 64 64"><defs><linearGradient id="${k}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0abfc"/><stop offset="1" stop-color="#38bdf8"/></linearGradient></defs><g fill="url(#${k})"><path d="M32 8C41 20 41 34 32 48 23 34 23 20 32 8Z"/><path d="M32 8C41 20 41 34 32 48 23 34 23 20 32 8Z" transform="rotate(-42 32 48)" opacity=".85"/><path d="M32 8C41 20 41 34 32 48 23 34 23 20 32 8Z" transform="rotate(42 32 48)" opacity=".85"/><path d="M32 14C39 24 39 36 32 48 25 36 25 24 32 14Z" transform="rotate(-78 32 48) scale(.8)" opacity=".6"/><path d="M32 14C39 24 39 36 32 48 25 36 25 24 32 14Z" transform="rotate(78 32 48) scale(.8)" opacity=".6"/></g></svg>`;
+const logo=`<div class="lg"><div style="border:1.5px solid #8b5cf6;border-radius:12px;padding:4px;box-shadow:0 0 14px #7c3aed88;display:flex">${lotus(26)}</div><span class="wm">LUXORA</span></div>`;
+const heart=w=>`<button class="hr" data-a="fav" data-v="${w.id}" aria-label="Favorite">${hs(favs.includes(w.id))}</button>`;
+const card=(w,t)=>`<div class="c${w.live?' live':''}${t?' t':''}" data-a="open" data-v="${w.id}"><div class="im" style='background-image:${bg(w)}'></div>${isLocked('w',w.id)?`<span class="crn">${ic('crown',14,'currentColor')}</span>`:''}${heart(w)}<span class="n">${w.name}</span></div>`;
+const first=c=>W.find(w=>w.cat==c);
+const ci=(c,sub)=>`<div class="ci${first(c).live?' live':''}" data-a="cat" data-v="${c}"><div class="im" style='background-image:${bg(first(c))}'></div><span class="n">${c}</span><small>${sub}</small><button class="vb">View</button></div>`;
+const tp=t=>`<div class="top">${t?`<div class="lg"><button class="ib" data-a="back" aria-label="Back">${ic('back')}</button><div><h1>${t[0]}</h1>${t[1]?`<span class="mut">${t[1]}</span>`:''}</div></div>`:logo}<button class="ib" data-a="srch" aria-label="Search">${ic('search')}</button></div>`;
+const hd=(t,tab)=>`<div class="hd"><h2>${t}</h2>${tab?`<button data-a="tab" data-v="${tab}">View All ›</button>`:''}</div>`;
+const chips=(arr,cur,a)=>`<div class="seg">${arr.map(x=>`<button class="chip ${x==cur?'on':''}" data-a="${a}" data-v="${x}">${x}</button>`).join('')}</div>`;
+function list(){let a=W.filter(w=>(!S.cat||w.cat==S.cat)&&(!S.mood||MOOD[S.mood].includes(w.cat))&&(!S.pm||w.prem)&&(!S.lv||w.live));const q=S.q.trim().toLowerCase();if(q)a=a.filter(w=>(w.name+' '+w.tags.join(' ')).toLowerCase().includes(q));return S.sort=='az'?a.sort((x,y)=>x.name.localeCompare(y.name)):a.sort((x,y)=>y.id-x.id)}
+function res(){const a=list();if(!a.length)return`<div class="box" style="text-align:center"><h2>Nothing found</h2><p class="mut">Try another name, color (blue, pink) or category.</p></div>`;return`<div class="grid">${a.slice(0,S.n).map(w=>card(w)).join('')}</div>${a.length>S.n?`<p style="text-align:center;margin:16px"><button class="btn o" data-a="more">Load more</button></p>`:''}`}
+const MOOD={Calm:['Ocean','Mountains','Nature','Minimalist'],Energetic:['Gaming','Cars','Motorcycles','Neon'],Dreamy:['Fantasy','Aesthetic','Flowers','Space'],Dark:['Dark','AMOLED','City Nights','3D Art']};
+let E={b:100,c:100,s:100,h:0,bl:0,v:0};const ef=()=>`brightness(${E.b}%) contrast(${E.c}%) saturate(${E.s}%) hue-rotate(${E.h}deg) blur(${E.bl}px)`;
+const SK=(()=>{const t=new Date(),k=d=>d.toDateString(),y=new Date(t-864e5),o=ld('sk',{d:'',n:0});if(o.d!=k(t)){o.n=o.d==k(y)?o.n+1:1;o.d=k(t);sv('sk',o)}return o})();
+const SHP=['Dots','Stars','Rings','Lines'];let raf=0;
+function stopStudio(){cancelAnimationFrame(raf);raf=0}
+function startStudio(){const c=$('#lvc');if(!c)return;const dp=Math.min(devicePixelRatio||1,2),W=c.clientWidth,H=c.clientHeight;c.width=W*dp;c.height=H*dp;const x=c.getContext('2d');x.scale(dp,dp);
+const P=PAL[S.sp],r=rng(5),ps=[...Array(S.sn)].map(()=>({x:r()*W,y:r()*H,z:.3+r()*.7,a:r()*6.28}));let t=0,last=0;
+const loop=ts=>{if(!document.contains(c))return;raf=requestAnimationFrame(loop);const gap=bs?66:16;if(document.hidden||ts-last<gap)return;last=ts;t+=S.ss*.004*(gap/16);
+const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,P[0]);g.addColorStop(.5+Math.sin(t)*.12,P[1]);g.addColorStop(1,P[2]);x.globalAlpha=1;x.fillStyle=g;x.fillRect(0,0,W,H);
+const b=x.createRadialGradient(W*(.5+Math.sin(t*.9)*.3),H*(.4+Math.cos(t*.7)*.2),0,W*.5,H*.45,W*.8);b.addColorStop(0,P[3]+'88');b.addColorStop(1,P[3]+'00');x.fillStyle=b;x.fillRect(0,0,W,H);
+x.fillStyle=x.strokeStyle=P[3];x.lineWidth=.9;
+ps.forEach(p=>{p.y-=S.ss*.25*p.z;p.x+=Math.sin(t*3+p.a)*.3;if(p.y<-12){p.y=H+12;p.x=Math.random()*W}x.globalAlpha=.25+p.z*.6;const z=p.z*3.4;x.beginPath();
+if(S.sh==0){x.arc(p.x,p.y,z,0,6.28);x.fill()}else if(S.sh==1){x.moveTo(p.x-z*1.6,p.y);x.lineTo(p.x+z*1.6,p.y);x.moveTo(p.x,p.y-z*1.6);x.lineTo(p.x,p.y+z*1.6);x.stroke()}else if(S.sh==2){x.arc(p.x,p.y,z*2,0,6.28);x.stroke()}else{x.moveTo(p.x,p.y);x.lineTo(p.x,p.y+z*8);x.stroke()}});x.globalAlpha=1};
+raf=requestAnimationFrame(loop)}
+function editor(w){const R=[['b','Brightness',50,150],['c','Contrast',50,150],['s','Saturation',0,200],['h','Hue',0,360],['bl','Blur',0,8],['v','Vignette',0,100]];
+return`<div class="full"><div class="dt"><div class="dimg"><div class="im" id="epv" style='background-image:${bg(w)};filter:${ef()}'></div><div id="evg" style="position:absolute;inset:0;z-index:2;background:radial-gradient(transparent 38%,#000);opacity:${E.v/100};pointer-events:none"></div><button class="back" data-a="edone" aria-label="Back">${ic('back')}</button></div><div class="di"><h1>Edit</h1><p class="mut" style="margin-bottom:10px">${w.name}</p>${R.map(x=>`<span class="mut">${x[1]}</span><input type="range" data-e="${x[0]}" min="${x[2]}" max="${x[3]}" value="${E[x[0]]}">`).join('')}<div class="acts"><button class="btn o" data-a="ereset">Reset</button><button class="btn" data-a="ap">Apply</button></div><p class="mut">${APP?'':'Preview only. Applying edits works inside the Android app.'}</p></div></div>${S.ap?apSheet():''}</div>`}
+let TF=ld('tf',false),CL=ld('cl',[]);const svC=()=>sv('cl',CL);
+const AUR=(()=>{const g=`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 190' preserveAspectRatio='xMidYMid slice'><defs><filter id='b' filterUnits='userSpaceOnUse' x='-40' y='-40' width='170' height='270'><feGaussianBlur stdDeviation='10'/></filter><filter id='g' x='0' y='0' width='100%' height='100%'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .12 -.02'/></filter><radialGradient id='v' cx='.5' cy='.5' r='.8'><stop offset='.5' stop-opacity='0'/><stop offset='1' stop-opacity='.55'/></radialGradient></defs><rect width='90' height='190' fill='#070b24'/><g filter='url(#b)'><circle cx='15' cy='30' r='34' fill='#7c3aed'/><circle cx='80' cy='70' r='28' fill='#22d3ee' opacity='.85'/><circle cx='25' cy='140' r='32' fill='#f472b6' opacity='.8'/><circle cx='78' cy='165' r='26' fill='#3b82f6'/></g><path d='M-5 60C25 40 45 90 95 55M-5 110C30 85 60 135 95 100M-5 160C20 140 55 175 95 150' fill='none' stroke='#fff' stroke-opacity='.14' stroke-width='.35'/><rect width='90' height='190' fill='url(#v)'/><rect width='90' height='190' filter='url(#g)'/></svg>`;return`url("data:image/svg+xml,${encodeURIComponent(g).replace(/'/g,'%27')}")`})();
+const mi=(g,l)=>`<div style="text-align:center"><div class="ico pk1">${ic(g,18)}</div><div style="font-size:3cqw;margin-top:1.2cqw;opacity:.9">${l}</div></div>`;
+const sbar=t=>`<div class="sb"><span>${t}</span><span>5G ${ic('battery',12)}</span></div>`;
+function mocks(){const n=new Date(),t=n.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',hour12:false}),d=n.toLocaleDateString(undefined,{weekday:'short',day:'numeric',month:'short'}),bgi=`<div class="bgi" style='background-image:${AUR}'></div>`;
+const nt=(g,a,b,c)=>`<div class="gl nt"><div class="ico pk1" style="width:9.5cqw">${ic(g,16)}</div><div><b>${a}</b><div>${b}</div></div><span>${c}</span></div>`;
+const lock=`<div class="pm">${bgi}<div class="in">${sbar(t)}<div style="text-align:center;margin-top:11cqw"><div style="font-size:4.4cqw;opacity:.9">${d}</div><div style="font-size:28cqw;line-height:1.05;font-weight:300">${t}</div></div><div style="margin-top:9cqw;display:grid;gap:2.4cqw">${nt('msg','Riya','See you at 7?','now')}${nt('calendar','Design review','Today, 4:30 PM','12m')}${nt('mail','3 new emails','Inbox','1h')}</div><div class="shc" style="left:7cqw">${ic('bolt',16)}</div><div class="shc" style="right:7cqw">${ic('camera',16)}</div><div class="hb"></div></div></div>`;
+const home=`<div class="pm">${bgi}<div class="in">${sbar(t)}<div class="gl" style="margin-top:5cqw;padding:5cqw"><div style="font-size:17cqw;line-height:1;font-weight:300">${t}</div><div style="font-size:3.8cqw;opacity:.85;margin-top:1.5cqw">${d} · Sample widget</div></div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4.5cqw 2cqw;margin-top:7cqw">${[['camera','Camera'],['music','Music'],['mail','Mail'],['clock','Clock'],['calendar','Calendar'],['compass','Maps'],['image','Photos'],['palette','Themes']].map(x=>mi(x[0],x[1])).join('')}</div><div class="gl" style="position:absolute;left:5cqw;right:5cqw;bottom:26cqw;padding:3cqw 4cqw;display:flex;gap:2cqw;align-items:center;font-size:3.8cqw">${ic('search',14)} Search</div><div class="gl" style="position:absolute;left:5cqw;right:5cqw;bottom:5cqw;padding:3cqw;display:grid;grid-template-columns:repeat(4,1fr);gap:2cqw">${['user','msg','compass','camera'].map(g=>`<div class="ico pk1" style="border-radius:30%;width:12cqw;margin:0 auto">${ic(g,18)}</div>`).join('')}</div></div></div>`;
+const R=[['wifi','Network','AuroraNet · Connected',210],['sun','Display','Dark mode · Adaptive',260],['image','Wallpaper & style','Aurora Glass',290],['volume','Sound','Vibrate · Medium',180],['bell','Notifications','Priority only',330],['battery','Battery','82% · Saver off',150]];
+const set=`<div class="pm" style="background:linear-gradient(180deg,#0a0f2c,#150b33)"><div class="in">${sbar(t)}<div style="font-size:8cqw;font-weight:500;margin:6cqw 1cqw 3cqw">Settings</div><div class="gl" style="padding:3cqw 4cqw;font-size:3.8cqw;display:flex;gap:2cqw;align-items:center;opacity:.9">${ic('search',14)} Search settings</div><div class="gl" style="margin-top:4cqw;padding:1cqw 3cqw">${R.map(r=>`<div class="rw3"><div class="ico" style="width:9.5cqw;border-radius:30%;background:linear-gradient(135deg,hsl(${r[3]} 80% 62%),hsl(${r[3]+40} 80% 48%));color:#fff">${ic(r[0],16)}</div><div><b>${r[1]}</b><div>${r[2]}</div></div></div>`).join('')}</div><div class="gl" style="margin-top:3cqw;padding:3cqw 4cqw;display:flex;justify-content:space-between;align-items:center;font-size:4cqw"><b style="font-weight:500">Dark mode</b><div class="mt"></div></div></div></div>`;
+const Q=[['wifi','Wi-Fi',1],['bolt','Torch',0],['bell','Silent',0],['battery','Saver',0],['sun','Auto',1],['play','Cast',0],['heart','Focus',1],['compass','Location',1]];
+const qp=`<div class="pm">${bgi}<div style="position:absolute;inset:0;background:#05061acc"></div><div class="in">${sbar(t)}<div style="margin:5cqw 1cqw 4cqw"><div style="font-size:10cqw;font-weight:300">${t}</div><div style="font-size:3.8cqw;opacity:.8">${d}</div></div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3.5cqw 2cqw">${Q.map(q=>`<div style="text-align:center"><div class="ico ${q[2]?'on3':'gl'}" style="border-radius:50%">${ic(q[0],16)}</div><div style="font-size:3cqw;margin-top:1.2cqw">${q[1]}</div></div>`).join('')}</div><div class="gl" style="margin-top:5cqw;padding:3.5cqw 4cqw;display:flex;gap:3cqw;align-items:center">${ic('sun',14)}<div style="flex:1;height:2cqw;border-radius:2cqw;background:#ffffff33"><div style="width:62%;height:100%;border-radius:2cqw;background:linear-gradient(90deg,#22d3ee,#a78bfa)"></div></div></div><div class="gl" style="margin-top:3cqw;padding:3cqw;display:flex;gap:3cqw;align-items:center"><div style="width:13cqw;height:13cqw;border-radius:3.5cqw;background:linear-gradient(135deg,#7c3aed,#22d3ee)"></div><div style="flex:1;font-size:3.6cqw"><b>Sample track</b><div style="opacity:.75">Aurora Glass</div></div>${ic('play',18)}</div></div></div>`;
+return[['Lock screen',lock],['Home screen',home],['Settings',set],['Quick panel',qp]]}
+const themeHero=()=>`<div class="c" style="aspect-ratio:16/10;width:100%;margin-bottom:4px" data-a="theme"><div class="im" style='background-image:${AUR}'></div><div style="position:absolute;left:16px;right:16px;bottom:14px;z-index:2"><span class="mut" style="letter-spacing:.12em;font-size:11px">FEATURED THEME</span><h2 style="font-size:22px;margin:2px 0 8px">Aurora Glass</h2><button class="vb" style="position:static;transform:none;padding:8px 22px">View theme</button></div></div>`;
+const themeCard=()=>`<div class="c" style="aspect-ratio:16/9;width:100%" data-a="theme"><div class="im" style='background-image:${AUR}'></div><span class="n" style="font-size:15px">Aurora Glass</span></div>`;
+const picker=w=>`<div class="sheet"><b>Add to collection</b>${CL.map((c,i)=>`<button class="pr" style="margin-top:8px" data-a="cpick" data-v="${i}"><span class="pi">${ic('folder',20)}</span><span class="pt"><b>${esc(c.n)}</b><small>${c.ids.length} ${c.ids.length==1?'wallpaper':'wallpapers'}</small></span>${c.ids.includes(w.id)?ic('check',20):''}</button>`).join('')}<div style="display:flex;gap:8px;margin-top:12px"><input class="q" id="cpn" maxlength="24" placeholder="New collection name" style="margin:0"><button class="btn" data-a="cpnew">Create</button></div><button class="lk" style="width:100%;justify-content:center;margin-top:6px" data-a="cp">Done</button></div>`;
+const APP=typeof Luxora!=='undefined';let DL=ld('dl',[]);
+function wPng(w,filt){return new Promise((res,rej)=>{const u=bg(w).slice(5,-2),svg=decodeURIComponent(u.split(',')[1]).replace('<svg ',"<svg width='1080' height='1920' "),im=new Image();
+im.onload=()=>{const c=document.createElement('canvas');c.width=1080;c.height=1920;const x=c.getContext('2d');if(filt)x.filter=filt;x.drawImage(im,0,0,1080,1920);res(c.toDataURL('image/jpeg',.92).split(',')[1])};
+im.onerror=()=>rej(new Error('render'));im.src='data:image/svg+xml,'+encodeURIComponent(svg)})}
+const apSheet=()=>`<div class="sheet"><b>Apply wallpaper</b>${[['home','Home screen'],['lock','Lock screen'],['both','Home and lock screens']].map(x=>`<button class="pr" style="margin-top:8px" data-a="apt" data-v="${x[0]}"><span class="pi">${ic('image',20)}</span><span class="pt"><b>${x[1]}</b></span></button>`).join('')}<button class="lk" style="width:100%;justify-content:center;margin-top:6px" data-a="apx">Cancel</button></div>`;
+window.luxoraResult=(ok,msg,kind,name)=>{toast(msg);if(ok&&kind=='save'){DL.unshift({n:name,t:Date.now()});DL=DL.slice(0,50);sv('dl',DL);if(S.tab=='dl')render()}};
+window.luxoraBack=()=>{if(S.sq!=null){S.sq=null;render();return true}if(S.cp){S.cp=false;render();return true}if(S.ap){S.ap=false;render();return true}if(S.ed){S.ed=false;render();return true}if(S.id!=null){S.id=null;render();return true}if(S.tab=='cols'&&S.cv!=null){S.cv=null;render();return true}if(S.tab!='home'){go(S.tab=='theme'?'themes':['set','fav','dl','cols'].includes(S.tab)?'profile':'home');return true}return false};
+let AUDIO=null,SF=ld('sf',[]);
+const mtf=m=>440*2**((m-69)/12),bell=(m,t,l=1.6,g=.5)=>['b',mtf(m),t,l,g],plk=(m,t,l=.5,g=.5)=>['p',mtf(m),t,l,g],pad=(m,t,l=2,g=.25)=>['d',mtf(m),t,l,g],pls=(m,t,l=.12,g=.3)=>['s',mtf(m),t,l,g],drp=(m,t,l=.25,g=.5)=>['r',mtf(m),t,l,g];
+const RP=(n,p,f)=>[].concat(...[...Array(n)].map((_,i)=>f(i*p)));
+const SND=[
+{n:'Aurora',k:'Ringtone',d:6,f:()=>RP(2,3,o=>[69,72,76,79,81,79,76,72].map((m,i)=>bell(m,o+i*.3,1.4,.4)))},
+{n:'Midnight Pulse',k:'Ringtone',d:6,f:()=>RP(6,1,o=>[pls(45,o,.25,.4),pls(45,o+.25,.12,.3),pad(57,o,.9,.15)])},
+{n:'Glass Bells',k:'Ringtone',d:6,f:()=>RP(2,3,o=>[76,79,83,81,79,76,74,71].map((m,i)=>bell(m,o+i*.34,1.2,.35)))},
+{n:'Skyline',k:'Ringtone',d:6,f:()=>RP(3,2,o=>[64,67,71,76,71,67].map((m,i)=>plk(m,o+i*.16,.5,.45)).concat([pad(52,o,1.8,.12)]))},
+{n:'Crystal Chime',k:'Notification',d:1.6,f:()=>[bell(84,0,1.2,.45),bell(91,.18,1.4,.4)]},
+{n:'Soft Pop',k:'Notification',d:.6,f:()=>[drp(88,0,.18,.55),plk(76,.1,.3,.25)]},
+{n:'Droplet',k:'Notification',d:.9,f:()=>[drp(96,0,.35,.5),drp(84,.22,.5,.3)]},
+{n:'Spark',k:'Notification',d:1,f:()=>[plk(79,0,.25,.45),plk(86,.12,.3,.4),plk(91,.24,.5,.3)]},
+{n:'Sunrise',k:'Alarm',d:8,f:()=>RP(2,4,o=>[[60,64,67],[62,65,69],[64,67,71],[67,71,74]].flatMap((c,i)=>c.map(m=>pad(m,o+i*.9,1.6,.12+i*.03))).concat([bell(84,o+3,1.2,.3)]))},
+{n:'Beacon',k:'Alarm',d:8,f:()=>RP(8,1,o=>[pls(88,o,.12,.35),pls(88,o+.2,.12,.35),pls(95,o+.4,.2,.3)])},
+{n:'Zen Bowl',k:'Alarm',d:8,f:()=>RP(2,4,o=>[bell(55,o,3.5,.55),bell(62,o+.02,3,.25)])},
+{n:'Prism Bloom',k:'Ringtone',d:7,f:()=>RP(2,3.5,o=>[72,76,79,84,81,79,76,74,79,83].map((m,i)=>bell(m,o+i*.28,1.1,.32)).concat([pad(60,o,2.1,.11)]))},
+{n:'Velvet Tap',k:'Notification',d:1.2,f:()=>[plk(73,0,.42,.38),bell(80,.12,.72,.32),plk(85,.27,.48,.24)]},
+{n:'Orbit Wake',k:'Alarm',d:8,f:()=>RP(2,4,o=>[60,67,72,76,72,67,64,69].map((m,i)=>bell(m,o+i*.38,1.35,.3)).concat([pad(48,o,2.2,.12)]))}];
+function tone(c,d,ty,f,s,l,g,at,f2){const o=c.createOscillator(),a=c.createGain();o.type=ty;o.frequency.setValueAtTime(f,s);if(f2)o.frequency.exponentialRampToValueAtTime(f2,s+l);a.gain.setValueAtTime(.0001,s);a.gain.linearRampToValueAtTime(g,s+at);a.gain.exponentialRampToValueAtTime(.0001,s+l);o.connect(a);a.connect(d);o.start(s);o.stop(s+l+.05)}
+function sched(c,d,notes,t0){notes.forEach(([k,f,t,l,g])=>{const s=t0+t;
+if(k=='b'){tone(c,d,'sine',f,s,l,g,.004);tone(c,d,'sine',f*2.76,s,l*.6,g*.35,.004);tone(c,d,'sine',f*5.4,s,l*.35,g*.15,.004)}
+else if(k=='p'){tone(c,d,'triangle',f,s,l,g,.005);tone(c,d,'sine',f*2,s,l*.5,g*.3,.005)}
+else if(k=='d'){tone(c,d,'sine',f,s,l,g,l*.35);tone(c,d,'triangle',f*1.005,s,l,g*.5,l*.35)}
+else if(k=='s'){tone(c,d,'square',f,s,l,g*.5,.005)}
+else if(k=='r'){tone(c,d,'sine',f,s,l,g,.003,f*.5)}})}
+function stopSound(){if(AUDIO){try{AUDIO.close()}catch(e){}AUDIO=null}S.pl=null}
+function playSound(i){const was=S.pl;stopSound();if(was===i)return;const C=window.AudioContext||window.webkitAudioContext,c=new C(),m=c.createGain();m.gain.value=.8;m.connect(c.destination);sched(c,m,SND[i].f(),c.currentTime+.05);AUDIO=c;S.pl=i;setTimeout(()=>{if(S.pl===i){stopSound();if(S.tab=='sounds')render()}},SND[i].d*1000+400)}
+async function sndWav(i){const d=SND[i].d,sr=44100,oc=new OfflineAudioContext(1,Math.ceil(sr*(d+.3)),sr),m=oc.createGain();m.gain.value=.8;m.connect(oc.destination);sched(oc,m,SND[i].f(),.02);const buf=await oc.startRendering(),x=buf.getChannelData(0),n=x.length,ab=new ArrayBuffer(44+n*2),v=new DataView(ab);
+const ws=(o,t)=>[...t].forEach((ch,j)=>v.setUint8(o+j,ch.charCodeAt(0)));ws(0,'RIFF');v.setUint32(4,36+n*2,true);ws(8,'WAVEfmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,sr,true);v.setUint32(28,sr*2,true);v.setUint16(32,2,true);v.setUint16(34,16,true);ws(36,'data');v.setUint32(40,n*2,true);
+for(let j=0;j<n;j++){const q=Math.max(-1,Math.min(1,x[j]));v.setInt16(44+j*2,q*32767,true)}
+let bin='';const u=new Uint8Array(ab);for(let j=0;j<u.length;j+=0x8000)bin+=String.fromCharCode.apply(null,u.subarray(j,j+0x8000));return btoa(bin)}
+async function downloadSound(i){try{toast('Preparing '+SND[i].n+'…');const b=await sndWav(i),a=document.createElement('a');a.href='data:audio/wav;base64,'+b;a.download='LUXORA-'+SND[i].n.replace(/[^A-Za-z0-9]+/g,'-')+'.wav';document.body.appendChild(a);a.click();a.remove();toast('WAV downloaded · '+SND[i].n)}catch(e){toast('Could not export this sound in this browser')}}
+const waveBars=(seed)=>Array.from({length:30},(_,i)=>`<i style="--h:${7+((i*13+seed*7)%17)}px"></i>`).join('');
+const sndSheet=()=>`<div class="sheet"><b>Set “${SND[S.sq].n}” as</b>${[['ringtone','Ringtone'],['notification','Notification sound'],['alarm','Alarm sound']].map(x=>`<button class="pr" style="margin-top:8px" data-a="sapp" data-v="${x[0]}"><span class="pi">${ic('music',20)}</span><span class="pt"><b>${x[1]}</b></span></button>`).join('')}<button class="lk" style="width:100%;justify-content:center;margin-top:6px" data-a="sx">Cancel</button></div>`;
+let ENT=ld('ent',{pro:false,own:[]}),DEV=ld('dev',false),VT=0;
+const PRICE={m:149,y:999,theme:49,wall:19,sound:19,font:29};
+const rs=n=>'₹'+n,ip=t=>PRICE[{w:'wall',s:'sound',f:'font',t:'theme'}[t]];
+W.forEach(w=>w.prem=w.id%6==3);
+const SPREM=i=>[1,3,10].includes(i),FPREM=i=>['Elegant','Handwriting'].includes(FONTS[i][1]);
+const owned=k=>ENT.pro||ENT.own.includes(k);
+const isLocked=(t,i)=>{if(i==null)return false;const p=t=='w'?W[i].prem:t=='s'?SPREM(i):t=='f'?FPREM(i):t=='t';return p&&!owned(t+':'+i)};
+const canSim=()=>!APP||DEV;
+function openPay(t,i){S.pw={t,i};go('pro')}
+function buy(plan){if(APP&&typeof Luxora.purchase==='function'){Luxora.purchase(plan,S.pw?S.pw.t+':'+S.pw.i:'');return}
+if(!canSim()){toast('Purchases open after release. Nothing was charged.');return}
+if(plan=='m'||plan=='y')ENT.pro=true;else if(S.pw)ENT.own.push(S.pw.t+':'+S.pw.i);
+sv('ent',ENT);S.pw=null;toast('Test unlock done. No payment was taken.');render()}
+const lockBox=(t,i,label)=>`<div class="box gold"><b class="gd" style="display:flex;gap:8px;align-items:center">${ic('crown',18,'currentColor')} Premium ${label}</b><p class="mut" style="margin:6px 0 12px">Unlock it to download and use it. Everything is included in LUXORA Premium.</p><div class="acts" style="margin:0"><button class="btn" data-a="unl" data-t="${t}" data-v="${i}">Unlock · ${rs(ip(t))}</button><button class="btn o" data-a="pro">Go Premium</button></div></div>`;
+const ACC=[{a:'#7c3aed',b:'#4f46e5',l:'#a78bfa',g:'linear-gradient(135deg,#c084fc,#6366f1 55%,#38bdf8)',n:'Purple'},{a:'#2563eb',b:'#0ea5e9',l:'#7dd3fc',g:'linear-gradient(135deg,#60a5fa,#2563eb 55%,#22d3ee)',n:'Blue'},{a:'#db2777',b:'#a21caf',l:'#f9a8d4',g:'linear-gradient(135deg,#f472b6,#c026d3 55%,#818cf8)',n:'Pink'},{a:'#059669',b:'#0d9488',l:'#6ee7b7',g:'linear-gradient(135deg,#34d399,#10b981 55%,#38bdf8)',n:'Emerald'}];
+function applyAcc(){const a=ACC[AC],r=document.documentElement.style;r.setProperty('--ac1',a.a);r.setProperty('--ac2',a.b);r.setProperty('--acl',a.l);r.setProperty('--g',a.g)}
+const FONTS=[['Poppins','Modern'],['Outfit','Modern'],['Space Grotesk','Modern'],['Orbitron','Gaming'],['Rajdhani','Gaming'],['Audiowide','Gaming'],['Playfair Display','Elegant'],['Cinzel','Elegant'],['Cormorant Garamond','Elegant'],['Pacifico','Handwriting'],['Dancing Script','Handwriting'],['Caveat','Handwriting'],['Bebas Neue','Bold'],['Anton','Bold'],['Righteous','Bold']];
+const esc=t=>t.replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');
+const ico=(k,g,i)=>`<div class="ia"><div class="ico pk${k}" style="--h:${(i*37+210)%360}">${ic(g,26)}</div>${g[0].toUpperCase()+g.slice(1)}</div>`;
+function fv(){S.ftx=$('#ftx').value;if($('#fsz'))S.fsz=+$('#fsz').value;const c=$('#fcl'),u=$('#fcu');if(u)u.textContent=S.ftx;if(c)c.style.fontSize=S.fsz+'px'}
+const V={
+home(){const hc=['Fantasy','Nature','Space','Neon','Anime'];return`${tp()}<input class="q" id="hq" placeholder="Search wallpapers, themes…"><div class="qa">${[['Wallpapers','grid','image'],['Live','live','play'],['Studio','studio','bolt'],['Themes','themes','palette'],['Fonts','fonts','type'],['Sounds','sounds','music'],['Icons','icons','grid']].map(q=>`<button data-a="tab" data-v="${q[1]}"><i>${ic(q[2],26)}</i>${q[0]}</button>`).join('')}</div><div class="seg" style="margin:4px 0 6px"><button class="chip" data-a="sup">${ic('shuffle',15)} Surprise me</button>${Object.keys(MOOD).map(m=>`<button class="chip" data-a="mood" data-v="${m}">${m}</button>`).join('')}</div><div class="lux-spot"><div class="lux-spot-glow"></div><div class="lux-spot-copy"><span class="lux-eyebrow">LUXORA CREATIVE SUITE</span><h2>Make it yours.</h2><p>Build a signature look with custom live visuals, colors and effects.</p><button class="btn" data-a="tab" data-v="studio">✦ Open Live Studio</button></div><div class="lux-orb"><span>✧</span><i></i><b></b></div></div><div class="box photo-launch"><div class="photo-launch-icon">✦</div><div class="photo-launch-copy"><b>Create with your own photo</b><p class="mut">Import an image, tune the look, then export a wallpaper.</p></div><button class="btn" data-a="importPhoto">Open Studio</button></div><div class="box sound-launch"><div class="sound-launch-icon">♫</div><div class="sound-launch-copy"><b>Signature Sound Lab</b><p class="mut">Preview original chimes, save favorites and export ringtone WAV files.</p></div><button class="btn" data-a="tab" data-v="sounds">Explore</button></div>${ENT.pro?'':`<div class="box gold" data-a="pro" style="display:flex;gap:12px;align-items:center;cursor:pointer;margin:6px 0"><span class="gd">${ic('crown',26,'currentColor')}</span><div style="flex:1"><b>Go Premium</b><div class="mut">Unlock every wallpaper, theme, font and sound</div></div>${ic('chev',18)}</div>`}
+<div class="ph"><div class="car">${hc.map(c=>ci(c,TAG[c])).join('')}</div></div>
+<div class="tb"><div class="ban"><div class="im" style='background-image:${bg(first('Nature'))}'></div><div class="t2"><h1>Nature Collection</h1><p class="mut" style="margin:4px 0 10px">${TAG.Nature}</p><button class="btn" data-a="cat" data-v="Nature">View Collection</button></div></div>${hd('Popular Collections','explore')}<div class="row">${['Nature','Space','Anime','Gaming','City Nights'].map(c=>`<div class="c" data-a="cat" data-v="${c}"><div class="im" style='background-image:${bg(first(c))}'></div><span class="n">${c}</span></div>`).join('')}</div></div>
+${hd('Trending Now','grid')}<div class="row">${W.slice(8,20).map(w=>card(w)).join('')}</div>${hd('New Arrivals','grid')}<div class="grid">${W.slice(-6).reverse().map(w=>card(w)).join('')}</div>`},
+explore(){const e=S.ex;return`${tp(['Explore'])}${chips(['All','Categories','Collections'],e,'ex')}`+(e=='All'?`<div class="car">${C.slice(0,8).map(c=>ci(c,W.filter(w=>w.cat==c).length+' wallpapers')).join('')}</div>${hd('Favorites','fav')}<div class="row">${W.filter(w=>favs.includes(w.id)).slice(0,6).map(w=>card(w)).join('')||'<p class="mut">Tap ♡ on any wallpaper to save it here.</p>'}</div>`:e=='Categories'?`<div class="grid l">${C.map(c=>`<div class="c" style="aspect-ratio:16/10" data-a="cat" data-v="${c}"><div class="im" style='background-image:${bg(first(c))}'></div><span class="n" style="font-size:14px">${c}</span></div>`).join('')}</div>`:`<div class="grid l">${TC.map(t=>`<div class="c" style="aspect-ratio:16/10" data-a="cat" data-v="${t[1]}"><div class="im" style='background-image:${bg(first(t[1]))}'></div><span class="n" style="font-size:14px">${t[0]}</span></div>`).join('')}</div>`)},
+grid(){return`${tp([S.cat||S.mood||'All Wallpapers',list().length+' wallpapers'])}<input class="q" id="gq" value="${S.q}" placeholder="Search wallpapers…">${chips(['All','Live','Premium','New','A–Z'],S.lv?'Live':S.pm?'Premium':S.sort=='az'?'A–Z':'All','gf')}<div id="res">${res()}</div>`},
+live(){const L=W.filter(w=>w.live);return`${tp(['Live Wallpapers'])}<p class="mut">Browser preview. The real Android live wallpaper service comes in Phase 4.</p>${hd('Popular')}<div class="row">${L.map(w=>card(w,1)).join('')}</div>${hd('Categories')}<div class="cir">${LC.map(c=>`<div data-a="lcat" data-v="${c}"><i style='background-image:${bg(first(c))}'></i>${c}</div>`).join('')}</div>`},
+themes(){return`${tp(['Themes','Complete makeover for your device'])}${themeHero()}<div class="car">${TC.map(t=>ci(t[1],t[0]+' · '+W.filter(w=>w.cat==t[1]).length+' wallpapers')).join('')}</div>${chips(['All','New'],S.tm,'tm')}${hd('Featured Themes')}<div class="row">${(S.tm=='New'?TC.slice().reverse():TC).map(t=>`<div class="c" data-a="cat" data-v="${t[1]}"><div class="im" style='background-image:${bg(first(t[1]))}'></div><span class="n">${t[0]}</span></div>`).join('')}</div><div class="box" style="margin-top:16px"><b>Icon packs</b><p class="mut">Matching icons need a compatible launcher. Android cannot change every icon automatically, so this comes later with clear instructions.</p></div>`},
+fav(){const a=W.filter(w=>favs.includes(w.id)&&(S.fav=='W'?!w.live:S.fav=='L'?w.live:false));return`<div class="top"><div class="lg"><button class="ib" data-a="back" aria-label="Back">${ic('back')}</button><h1>Favorites</h1></div><button class="ib" data-a="tab" data-v="set" aria-label="Settings">${ic('sliders')}</button></div><div class="seg">${[['W','Wallpapers'],['L','Live'],['T','Themes']].map(x=>`<button class="chip ${S.fav==x[0]?'on':''}" data-a="fv" data-v="${x[0]}">${x[1]}</button>`).join('')}</div>`+(S.fav=='T'&&TF?themeCard():a.length?`<div class="grid">${a.map(w=>card(w)).join('')}</div>`:`<div class="box" style="text-align:center"><h2>${S.fav=='T'?'Theme favorites coming later':'Nothing saved yet'}</h2><p class="mut">Tap ♡ on a wallpaper. Favorites stay on your phone.</p><p style="margin-top:12px"><button class="btn" data-a="tab" data-v="explore">Explore</button></p></div>`)},
+fonts(){const F=FONTS[S.ft],n=new Date(),tm=n.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',hour12:false}),dt=n.toLocaleDateString(undefined,{weekday:'long',day:'numeric',month:'long'}),w=W[S.fbg];
+const rows=FONTS.map((x,i)=>[x,i]).filter(([x,i])=>S.fcat=='All'||(S.fcat=='Saved'?FF.includes(i):x[1]==S.fcat)).map(([x,i])=>`<div class="fr ${S.ft==i?'on':''}" data-a="fsel" data-v="${i}"><div><b style="font-family:'${x[0]}',system-ui">${x[0]}</b>${isLocked('f',i)?` <span class="gd">${ic('crown',14,'currentColor')}</span>`:''} <span class="mut">${x[1]}</span><div class="smp" style="font-family:'${x[0]}',system-ui">Your Style, Your Luxora</div></div><button class="hr2" data-a="ffav" data-v="${i}" aria-label="Save font">${hs(FF.includes(i))}</button></div>`).join('');
+return`${tp(['Fonts','Style your clock and text'])}<div class="fgrid"><div><div class="fpv"><div class="im" style='background-image:${bg(w)}'></div><div class="fcl" id="fcl" style="font-family:'${F[0]}',system-ui;color:${S.fcol};font-size:${S.fsz}px"><div class="ctm">${tm}</div><div class="cdt">${dt}</div><div class="ccu" id="fcu">${esc(S.ftx)}</div></div></div>
+<div class="acts"><button class="btn o" data-a="fbg">Change wallpaper</button><button class="btn" data-a="fa">Apply to phone</button></div>
+${S.fnote?`<div class="box"><b>Honest note</b><p class="mut">Android does not let normal apps change the whole phone font. Many phones have their own font setting (for example Samsung: Display › Font style). LUXORA will use your chosen font on its own clock and text wallpapers in the Android build. Not built or tested yet.</p></div>`:''}
+<input class="q" id="ftx" maxlength="28" value="${esc(S.ftx)}" placeholder="Type your text"><div class="box"><span class="mut">Size</span><input type="range" id="fsz" min="28" max="64" value="${S.fsz}"><div class="row">${['#ffffff','#f0abfc','#7dd3fc','#fde68a','#86efac','#111111'].map(c=>`<button class="sw ${S.fcol==c?'on':''}" style="background:${c}" data-a="fcol" data-v="${c}" aria-label="Color"></button>`).join('')}</div></div></div>
+<div>${chips(['All','Saved','Modern','Gaming','Elegant','Handwriting','Bold'],S.fcat,'fcat')}${rows||'<div class="box mut">No saved fonts yet. Tap the heart on a font.</div>'}</div></div>`},
+icons(){const G=['home','camera','music','mail','clock','msg','calendar','compass','palette','heart','user','sliders'],P=['Neon Glow','Glass','Minimal Line','Aurora Gradient'],w=W[S.fbg];
+return`${tp(['Icon Packs','Match your wallpaper'])}<div class="fpv" style="aspect-ratio:4/4.4"><div class="im" style='background-image:${bg(w)}'></div><div class="ig">${G.map((g,i)=>ico(S.ipk,g,i)).join('')}</div></div>
+<div class="seg" style="margin-top:12px">${P.map((p,i)=>`<button class="chip ${S.ipk==i?'on':''}" data-a="ipk" data-v="${i}">${p}</button>`).join('')}<button class="chip" data-a="fbg">Change wallpaper</button></div>
+<div class="box"><b>${P[S.ipk]}</b><p class="mut">Preview only. Icon packs need a compatible launcher (like Nova or Lawnchair), because Android cannot restyle every icon by itself. The installable pack comes in the Android build.</p></div>`},
+theme(){const M=mocks(),sw=[['#070b24','Midnight'],['#7c3aed','Violet'],['#22d3ee','Cyan'],['#f472b6','Rose'],['#3b82f6','Blue']];
+const inf=(i,t,sub,b)=>`<div class="pr" style="cursor:default"><span class="pi">${ic(i,20)}</span><span class="pt"><b>${t}</b><small>${sub}</small></span>${b?`<button class="chip" data-a="${b[0]}">${b[1]}</button>`:''}</div>`;
+return`${tp(['Aurora Glass','Featured theme'])}<p class="mut" style="margin-bottom:12px">Glass icons, deep aurora gradients and calm cyan accents. These are sample previews of how the theme looks on a phone.</p>
+<div class="row" style="gap:18px;padding:4px 2px 10px">${M.map(m=>`<div><div class="pw">${m[1]}</div><p class="mut" style="text-align:center;margin-top:10px">${m[0]}</p></div>`).join('')}</div>
+<div class="acts"><button class="btn o" data-a="tsv">${hs(TF)} ${TF?'Saved':'Save theme'}</button><button class="btn" data-a="tap">${isLocked('t','aurora')?ic('crown',16,'currentColor')+' Unlock · '+rs(PRICE.theme):'Apply theme'}</button></div>
+${S.tap?`<div class="box"><b>How applying will work</b><p class="mut" style="margin-top:6px">Not built yet, so nothing is applied now. In the Android build: the wallpaper and live wallpaper can be set automatically. The Glass icons need a compatible launcher. The font is changed by you in your phone settings, and LUXORA will show the steps.</p></div>`:''}
+<h2 class="sec">Palette</h2><div class="row">${sw.map(c=>`<div style="text-align:center"><div class="sw" style="background:${c[0]};width:48px;height:48px"></div><div class="mut" style="margin-top:6px;font-size:11px">${c[1]}<br>${c[0]}</div></div>`).join('')}</div>
+<h2 class="sec">What is inside</h2>${inf('image','Wallpaper','Aurora gradient · static')}${inf('play','Live wallpaper','Aurora particles',['tstd','Studio'])}${inf('grid','Icon pack','Glass',['ticn','View'])}${inf('type','Font','Space Grotesk',['tfnt','View'])}${inf('palette','Widgets','Glass cards, soft blur, rounded corners')}`},
+cols(){if(S.cv!=null&&CL[S.cv]){const c=CL[S.cv],a=c.ids.map(i=>W[i]);return`${tp([c.n,a.length+(a.length==1?' wallpaper':' wallpapers')])}`+(a.length?`<div class="grid">${a.map(w=>card(w)).join('')}</div>`:`<div class="box" style="text-align:center"><h2>Empty collection</h2><p class="mut">Open a wallpaper and tap Collect.</p></div>`)+`<button class="btn o" style="width:100%;margin-top:16px" data-a="cdel" data-v="${S.cv}">${S.cd==S.cv?'Tap again to delete':'Delete collection'}</button>`}
+return`${tp(['Collections'])}<div class="box"><b>New collection</b><div style="display:flex;gap:8px;margin-top:10px"><input class="q" id="cnm" maxlength="24" placeholder="Name, e.g. Night vibes" style="margin:0"><button class="btn" data-a="cnew">Create</button></div></div>`+(CL.length?CL.map((c,i)=>`<button class="pr" data-a="cview" data-v="${i}"><span class="pi">${ic('folder',20)}</span><span class="pt"><b>${esc(c.n)}</b><small>${c.ids.length} ${c.ids.length==1?'wallpaper':'wallpapers'}</small></span>${ic('chev',18)}</button>`).join(''):'<p class="mut">No collections yet.</p>')},
+sounds(){const L=SND.map((x,i)=>[x,i]).filter(([x,i])=>S.sc=='All'||(S.sc=='Saved'?SF.includes(i):x.k+'s'==S.sc));
+return`${tp(['Signature Sound Lab','Original chimes for your device'])}<div class="sound-hero"><span class="sound-kicker">LUXORA AUDIO COLLECTION · 2.3</span><h2>Make every moment sound premium.</h2><p>Listen to custom synthesized melodies, save your favorites, and export WAV files for use on your device. Choose a sound, preview it, then download or set it in the Android app.</p><div class="sound-stats"><span>♫ ${SND.length} original sounds</span><span>◈ Ringtones · Alerts · Alarms</span><span>↓ WAV export</span></div></div>${chips(['All','Ringtones','Notifications','Alarms','Saved'],S.sc,'ssc')}<div class="sound-grid">`+(L.length?L.map(([x,i])=>`<div class="sound-row ${S.pl===i?'on':''}"><button class="pbtn" data-a="splay" data-v="${i}" aria-label="${S.pl===i?'Pause':'Preview'} ${x.n}">${ic(S.pl===i?'pause':'play',21)}</button><div class="sound-art">${x.k=='Ringtone'?'♫':x.k=='Alarm'?'◷':'✧'}</div><div style="flex:1;min-width:0"><b>${x.n}</b>${isLocked('s',i)?` <span class="gd">${ic('crown',14,'currentColor')}</span>`:''}<div class="mut">${x.k} · ${x.d<2?x.d.toFixed(1):Math.round(x.d)} sec</div><div class="sound-wave" aria-hidden="true">${waveBars(i+1)}</div></div><div class="sound-actions"><button class="hr2" data-a="sfav" data-v="${i}" aria-label="Save ${x.n}">${hs(SF.includes(i))}</button><button class="chip" data-a="sndown" data-v="${i}" aria-label="Download ${x.n}">↓ WAV</button><button class="chip" data-a="sset" data-v="${i}">Set</button></div></div>`).join(''):'<div class="box mut">No saved sounds yet. Tap the heart on any sound to save it.</div>')+`</div><div class="box" style="margin-top:12px"><b>How it works</b><p class="mut" style="margin-top:6px">These original tones are synthesized locally in the app, so you can preview them without a streaming service. WAV export works in the Chrome preview. Setting a ringtone or notification as a system sound requires the Android app and the appropriate Android permission.</p></div>`+(S.sq!=null?sndSheet():'')},
+pro(){const it=S.pw,KD={w:'wallpaper',s:'sound',f:'font',t:'theme'},nm=it?({w:()=>W[it.i].name,s:()=>SND[it.i].n,f:()=>FONTS[it.i][0],t:()=>'Aurora Glass'}[it.t])():'',sv2=Math.round((1-PRICE.y/(PRICE.m*12))*100);
+const ft=!APP?'Preview only: the buttons unlock for testing. No payment is taken.':DEV?'Developer test mode: purchases are simulated.':'Purchases open after release.';
+return`${tp(['Premium','Unlock everything'])}<div class="box gold" style="text-align:center"><div class="gd" style="justify-content:center">${ic('crown',40,'currentColor')}</div><h1 style="margin:8px 0 4px">LUXORA Premium</h1><p class="mut">Every premium wallpaper, theme, font and sound</p></div>
+${ENT.pro?`<div class="box"><b>Premium is active</b><p class="mut">${canSim()?'Test unlock. No payment was taken.':'Thank you for supporting LUXORA.'}</p></div>`:''}
+${it&&!owned(it.t+':'+it.i)?`<div class="box"><b>Unlock only this ${KD[it.t]}</b><p class="mut">${nm}</p><button class="btn" style="width:100%;margin-top:10px" data-a="buy" data-v="item">Unlock · ${rs(ip(it.t))}</button></div>`:''}
+<h2 class="sec">Choose a plan</h2>
+<button class="plan best" data-a="buy" data-v="y"><span><b>Yearly</b><span class="tag">Save ${sv2}%</span><div class="mut">${rs(PRICE.y)} per year</div></span><b class="gd">${rs(PRICE.y)}</b></button>
+<button class="plan" data-a="buy" data-v="m"><span><b>Monthly</b><div class="mut">${rs(PRICE.m)} per month</div></span><b>${rs(PRICE.m)}</b></button>
+<h2 class="sec">What you get</h2>
+${['All premium wallpapers and live wallpapers','Premium themes, fonts and sounds','Everything currently marked with a crown'].map(x=>`<div class="pr" style="cursor:default"><span class="pi">${ic('check',20)}</span><span class="pt"><b>${x}</b></span></div>`).join('')}
+<button class="pr" data-a="rest"><span class="pi">${ic('download',20)}</span><span class="pt"><b>Restore purchases</b><small>Works once payments are live</small></span>${ic('chev',18)}</button>
+<p class="mut" style="margin-top:12px">${ft}</p>`},
+studio(){return`${tp(['Live Studio','Build your own live wallpaper'])}<div class="fpv" style="aspect-ratio:9/14;max-height:62vh"><canvas id="lvc"></canvas></div>
+<div class="box" style="margin-top:12px"><b>Palette</b><div class="row" style="margin:10px 0">${PAL.map((p,i)=>`<button class="sw ${S.sp==i?'on':''}" style="background:linear-gradient(135deg,${p[1]},${p[2]})" data-a="spal" data-v="${i}" aria-label="${p[4]}"></button>`).join('')}</div>
+<span class="mut">Speed</span><input type="range" id="sps" min="1" max="10" value="${S.ss}"><span class="mut">Particles</span><input type="range" id="spn" min="10" max="120" value="${S.sn}">${chips(SHP,SHP[S.sh],'ssh')}</div>
+<div class="box rw"><div><b>Battery saver</b><p class="mut">${bs?'On: animation runs at a lower frame rate':'Off: smooth full-speed animation'}</p></div><button class="tg ${bs?'on':''}" data-a="bs" aria-label="Battery saver"></button></div>
+<p class="mut">Browser preview. These settings will drive the real Android live wallpaper service later. Not built yet.</p>`},
+profile(){const nm=ld('nm',''),P=['Neon Glow','Glass','Minimal Line','Aurora Gradient'];
+const row=(i,t,sub,a,v)=>`<button class="pr" data-a="${a}" data-v="${v||''}"><span class="pi">${ic(i,20)}</span><span class="pt"><b>${t}</b><small>${sub}</small></span>${ic('chev',18)}</button>`;
+return`<div class="top"><div class="lg"><h1>Profile</h1></div><button class="ib" data-a="tab" data-v="set" aria-label="Settings">${ic('sliders')}</button></div>
+<div class="box phd"><div class="av" id="pav">${(nm.trim()[0]||'G').toUpperCase()}</div><div style="flex:1;min-width:0"><input class="pn" id="pnm" maxlength="20" value="${esc(nm)}" placeholder="Your name"><p class="mut" style="margin-top:6px">No account needed. Everything stays on this device.</p></div></div>
+<div class="stats"><div><b>${favs.length}</b><span>Favorites</span></div><div><b>${FF.length}</b><span>Fonts</span></div><div><b>${SK.n}</b><span>Day streak</span></div></div>
+${row('crown',ENT.pro?'Premium active':'LUXORA Premium',ENT.pro?'All premium content unlocked':'Unlock every wallpaper, theme, font and sound','pro')}${row('heart','Favorites',favs.length+' saved wallpapers','tab','fav')}${row('type','Saved fonts',FF.length+' fonts','fsv')}${row('folder','Collections',CL.length+' collections','tab','cols')}${row('grid','Icon pack',P[S.ipk],'tab','icons')}${row('download','Downloads',(DL.length?DL.length+' saved':'Saved images appear here'),'tab','dl')}
+<h2 class="sec">Preferences</h2>
+<div class="box"><b>Accent color</b><p class="mut">Changes buttons and highlights</p><div class="row" style="margin-top:12px">${ACC.map((a,i)=>`<button class="sw ${AC==i?'on':''}" style="background:${a.g}" data-a="acc" data-v="${i}" aria-label="${a.n}"></button>`).join('')}</div></div>
+<div class="box rw"><div><b>Battery saver</b><p class="mut">Pauses live animations</p></div><button class="tg ${bs?'on':''}" data-a="bs" aria-label="Battery saver"></button></div>
+${DEV?`<div class="box"><b>Developer test mode</b><p class="mut">Purchases are simulated. Never ship the final app with this on.</p><button class="btn o" style="width:100%;margin-top:10px" data-a="entreset">Reset test purchases</button></div>`:''}<h2 class="sec">About</h2>
+<div class="box" data-a="ver"><b>LUXORA v2.0.0</b><p class="mut">Wallpapers, live wallpapers, themes, fonts and icon packs.</p></div>
+${row('shield','Privacy policy','What is stored and what is not','pv')}${S.pv?`<div class="box"><p class="mut">LUXORA asks for no account. Your favorites, saved fonts, name and settings stay only on this device (browser storage in this prototype). There are no ads or analytics yet. If that changes, this policy will be updated before release. This is a draft summary, not the final legal policy.</p></div>`:''}
+${row('mail','Feedback','Opens after release','fb')}
+<button class="btn o" style="width:100%;margin-top:14px" data-a="rst">${S.rc?'Tap again to confirm reset':'Reset my data'}</button>`},
+dl(){return`${tp(['Downloads'])}${DL.length?DL.map(d=>`<div class="pr" style="cursor:default"><span class="pi">${ic('download',20)}</span><span class="pt"><b>${esc(d.n)}</b><small>${new Date(d.t).toLocaleDateString()} · Pictures/LUXORA</small></span></div>`).join(''):`<div class="box"><h2>No downloads yet</h2><p class="mut">${APP?'Tap Download on any wallpaper. Images are saved to Pictures/LUXORA.':'Downloads work inside the Android app. This web preview is a demo.'}</p></div>`}`},
+set(){return`<div class="top"><div class="lg"><button class="ib" data-a="back" aria-label="Back">${ic('back')}</button><h1>Settings</h1></div><span></span></div><div class="box" style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div><b>Battery saver</b><p class="mut">Pauses live animations</p></div><button class="tg ${bs?'on':''}" data-a="bs" aria-label="Battery saver"></button></div><div class="box"><b>No account needed</b><p class="mut">Favorites are saved only on this device. No personal data is collected.</p></div><div class="box"><b>LUXORA v2.3 prototype</b><p class="mut">Download and Apply are demos until the Android APK phase.</p></div>`}};
+const NAVS=[['home','home','Home'],['explore','compass','Explore'],['themes','','','cb'],['live','play','Live','ph'],['profile','user','Profile','ph'],['live','play','Live Wallpapers','tb'],['studio','bolt','Live Studio','tb'],['themes','palette','Themes & Icons','tb'],['fonts','type','Fonts','tb'],['sounds','music','Sounds','tb'],['icons','grid','Icon Packs','tb'],['fav','heart','Favorites','tb'],['dl','download','Downloads','tb'],['pro','crown','Premium','tb'],['profile','user','Profile','tb'],['set','sliders','Settings','tb']];
+const act=t=>({grid:'explore',theme:'themes',cols:'profile'})[t]||t;
+function render(){stopStudio();if(S.tab!='sounds')stopSound();applyAcc();document.body.classList.toggle('bs',bs);
+$('#nav').innerHTML=`<div class="sbl tb">${logo}</div>`+NAVS.map(n=>`<button class="${n[3]||''} ${act(S.tab)==n[0]?'on':''}" data-a="tab" data-v="${n[0]}" ${n[3]=='cb'?'aria-label="Themes"':''}>${n[3]=='cb'?lotus(32,'lg2'):`${ic(n[1])}${n[2]}`}</button>`).join('');
+$('#main').innerHTML=V[S.tab]();const w=W[S.id];$('#ov').innerHTML=w?(S.ed?editor(w):detail(w)):'';car();if(S.tab=='studio'&&!S.id)startStudio()}
+function detail(w){const f=favs.includes(w.id),sim=W.filter(x=>x.cat==w.cat&&x.id!=w.id).concat(W.filter(x=>x.h==w.h&&x.cat!=w.cat)).slice(0,4);
+return`<div class="full"><div class="dt"><div class="dimg${w.live?' live':''}"><div class="im" style='background-image:${bg(w)}'></div><button class="back" data-a="close" aria-label="Back">${ic('back')}</button><button class="fv" data-a="fav" data-v="${w.id}" aria-label="Favorite">${hs(f)}</button></div><div class="di"><p class="mut">${w.live?'Live Wallpaper':'Wallpaper'}</p><h1>${w.name}</h1><div class="seg" style="margin:10px 0"><span class="chip">${w.cat}</span><span class="chip">Portrait</span>${w.live?'<span class="chip">Live</span>':''}</div><p class="mut">▣ 9:16 · demo artwork (real sizes come with real images)</p>
+${isLocked('w',w.id)?lockBox('w',w.id,'wallpaper'):`<div class="acts"><button class="btn o" data-a="dl2">${ic('download',18)} Download</button><button class="btn" data-a="ap">Apply</button></div>`}<div class="acts" style="justify-content:center;gap:4px;flex-wrap:wrap"><button class="lk" data-a="sh" data-v="${w.id}">${ic('share',18)} Share</button><button class="lk" data-a="edit">${ic('sliders',18)} Edit</button><button class="lk" data-a="cp">${ic('folder',18)} Collect</button><button class="lk" data-a="fav" data-v="${w.id}">${hs(f)} ${f?'Saved':'Favorite'}</button></div>
+${w.live?`<div class="box" style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div><b>Enable Battery Saver</b><p class="mut">Reduces animation when not in use</p></div><button class="tg ${bs?'on':''}" data-a="bs"></button></div>`:''}
+<p class="mut" style="margin:14px 0 8px">Similar Wallpapers</p><div class="row">${sim.map(x=>card(x)).join('')}</div></div></div>${S.cp?picker(w):''}${S.ap?apSheet():''}</div>`}
+function car(){document.querySelectorAll('.car').forEach(c=>{if(!c.offsetWidth)return;const it=[...c.querySelectorAll('.ci')];
+const f=()=>{const cx=c.scrollLeft+c.clientWidth/2;let b=null,bd=9;it.forEach(e=>{const o=(e.offsetLeft+e.offsetWidth/2-cx)/e.offsetWidth,a=Math.min(Math.abs(o),1.5);e.style.transform=`perspective(800px) rotateY(${-o*28}deg) scale(${1-a*.12})`;e.style.opacity=1-a*.3;e.style.zIndex=10-Math.round(a*4);e.classList.remove('cur');if(a<bd){bd=a;b=e}});if(b)b.classList.add('cur')};
+let r=0;c.onscroll=()=>{cancelAnimationFrame(r);r=requestAnimationFrame(f)};
+const m=it[Math.min(1,it.length-1)];if(m)c.scrollLeft=m.offsetLeft+m.offsetWidth/2-c.clientWidth/2;f()})}
+let tt;const toast=m=>{const e=$('#t');e.textContent=m;e.style.display='block';clearTimeout(tt);tt=setTimeout(()=>e.style.display='none',3200)};
+const go=(t,x)=>{Object.assign(S,{pm:false,sq:null,ap:false,tap:false,cd:null,cp:false,cv:null,mood:null,ed:false,rc:false,pv:false,tab:t,cat:null,q:'',n:30,lv:false,id:null,sort:'new'},x||{});render();scrollTo(0,0);const m=$('#main');m.classList.remove('pg');void m.offsetWidth;m.classList.add('pg')};
+
+let customPhoto=null,customPhotoName='LUXORA-Custom-Wallpaper';
+function openPhotoStudio(file){if(!file)return;if(!file.type.startsWith('image/')){toast('Please choose an image file');return}if(file.size>18*1024*1024){toast('Choose an image smaller than 18 MB');return}const reader=new FileReader();reader.onload=()=>{customPhoto=reader.result;customPhotoName=(file.name||'LUXORA-Custom-Wallpaper').replace(/\.[^.]+$/,'').replace(/[^a-z0-9-_]+/gi,'-')||'LUXORA-Custom-Wallpaper';const host=$('#photoStudio');host.innerHTML=`<div class="ps-wrap"><div class="ps-head"><div><p class="mut">LUXORA CREATIVE SUITE</p><h2>Photo Wallpaper Studio</h2></div><button class="ib" data-a="photoClose" aria-label="Close">×</button></div><div class="ps-preview"><img id="psImage" src="${customPhoto}" alt="Your photo preview"></div><div class="ps-controls">${[['pb','Brightness',50,150,100,'%'],['pc','Contrast',50,160,100,'%'],['ps','Saturation',0,200,100,'%'],['ph','Hue',0,360,0,'°'],['pbl','Soft blur',0,8,0,'px']].map(a=>`<div class="ps-control"><label for="${a[0]}"><span>${a[1]}</span><b id="${a[0]}v">${a[4]}${a[5]}</b></label><input id="${a[0]}" type="range" min="${a[2]}" max="${a[3]}" value="${a[4]}" data-photo-filter="${a[0]}"></div>`).join('')}</div><div class="ps-actions"><button class="btn o" data-a="photoReset">Reset</button><button class="btn" data-a="photoExport">Export Wallpaper</button></div><p class="ps-note">Your photo stays in this browser session. Export creates a wallpaper image file; applying it directly as system wallpaper requires the Android app.</p></div>`;host.hidden=false;document.body.style.overflow='hidden'};reader.onerror=()=>toast('Could not read that image');reader.readAsDataURL(file)}
+function updatePhotoFilter(){const img=$('#psImage');if(!img)return;const vals={pb:+$('#pb').value/100,pc:+$('#pc').value/100,ps:+$('#ps').value/100,ph:+$('#ph').value,pbl:+$('#pbl').value};img.style.setProperty('--pb',vals.pb);img.style.setProperty('--pc',vals.pc);img.style.setProperty('--ps',vals.ps);img.style.setProperty('--ph',vals.ph+'deg');img.style.setProperty('--pbl',vals.pbl+'px');for(const k of Object.keys(vals)){const out=$('#'+k+'v');if(out)out.textContent=(k=='ph'?vals[k]+'°':k=='pbl'?vals[k]+'px':Math.round(vals[k]*100)+'%')}}
+function exportPhoto(){const img=$('#psImage');if(!img||!img.complete){toast('Photo is still loading');return}const w=1080,h=1920,c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');x.fillStyle='#080a18';x.fillRect(0,0,w,h);const cover=Math.max(w/img.naturalWidth,h/img.naturalHeight),dw=img.naturalWidth*cover,dh=img.naturalHeight*cover;x.filter=`brightness(${+$('#pb').value/100}) contrast(${+$('#pc').value/100}) saturate(${+$('#ps').value/100}) hue-rotate(${$('#ph').value}deg) blur(${$('#pbl').value}px)`;x.drawImage(img,(w-dw)/2,(h-dh)/2,dw,dh);x.filter='none';c.toBlob(blob=>{if(!blob){toast('Could not export this image');return}const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=customPhotoName+'-1080x1920.jpg';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);toast('Wallpaper exported')},'image/jpeg',.94)}
+function closePhotoStudio(){const host=$('#photoStudio');host.hidden=true;host.innerHTML='';document.body.style.overflow='';$('#photoPicker').value=''}
+
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;e.stopPropagation();const cc=b.closest('.ci');if(cc&&!cc.classList.contains('cur')){const c=cc.parentElement;c.scrollTo({left:cc.offsetLeft+cc.offsetWidth/2-c.clientWidth/2,behavior:'smooth'});return}const a=b.dataset.a,v=b.dataset.v;
+if(a=='importPhoto'){ $('#photoPicker').click();return }else if(a=='photoClose'){closePhotoStudio();return}else if(a=='photoReset'){for(const [k,val] of [['pb',100],['pc',100],['ps',100],['ph',0],['pbl',0]])$('#'+k).value=val;updatePhotoFilter();return}else if(a=='photoExport'){exportPhoto();return}
+if(a=='open'){S.id=+v;render()}else if(a=='close'){S.id=null;S.cp=false;render()}
+else if(a=='fav'){const i=+v;favs=favs.includes(i)?favs.filter(x=>x!=i):[...favs,i];sv('fv',favs);if(S.tab=='fav'||b.closest('.full'))render();else document.querySelectorAll('.hr[data-v="'+i+'"]').forEach(h=>h.innerHTML=hs(favs.includes(i)))}
+else if(a=='tab')go(v);else if(a=='cat')go('grid',{cat:v});else if(a=='lcat')go('grid',{cat:v,lv:true});
+else if(a=='back'){if(S.tab=='cols'&&S.cv!=null){S.cv=null;render()}else go(S.tab=='theme'?'themes':['set','fav','dl','cols'].includes(S.tab)?'profile':'home')}else if(a=='srch'){go('grid');const g=$('#gq');g&&g.focus()}
+else if(a=='ex'){S.ex=v;render()}else if(a=='tm'){S.tm=v;render()}else if(a=='fv'){S.fav=v;render()}
+else if(a=='gf'){S.lv=v=='Live';S.pm=v=='Premium';S.sort=v=='A–Z'?'az':'new';render()}
+else if(a=='more'){S.n+=30;$('#res').innerHTML=res()}
+else if(a=='bs'){bs=!bs;sv('bs',bs);render()}
+else if(a=='fsel'){S.ft=+v;render()}
+else if(a=='ffav'){const i=+v;FF=FF.includes(i)?FF.filter(x=>x!=i):[...FF,i];sv('ff',FF);render()}
+else if(a=='fcat'){S.fcat=v;render()}else if(a=='fcol'){S.fcol=v;render()}
+else if(a=='fbg'){S.fbg=(S.fbg+7)%96;render()}else if(a=='fa'){if(isLocked('f',S.ft))openPay('f',S.ft);else{S.fnote=!S.fnote;render()}}
+else if(a=='ipk'){S.ipk=+v;sv('ip',S.ipk);render()}
+else if(a=='fsv')go('fonts',{fcat:'Saved'});
+else if(a=='acc'){AC=+v;sv('ac',AC);render()}else if(a=='pv'){S.pv=!S.pv;render()}
+else if(a=='fb')toast('Feedback opens after release. For now, tell it to me in chat.')
+else if(a=='rst'){if(!S.rc){S.rc=true;render()}else{['fv','ff','ip','nm','ac','bs','sk','cl','tf','dl','sf','ent','dev'].forEach(k=>{try{localStorage.removeItem(k)}catch(x){}});favs=[];FF=[];CL=[];DL=[];SF=[];ENT={pro:false,own:[]};DEV=false;TF=false;bs=false;AC=0;S.ipk=0;S.rc=false;render();toast('Your data was reset')}}
+else if(a=='spal'){S.sp=+v;render()}else if(a=='ssh'){S.sh=SHP.indexOf(v);render()}
+else if(a=='mood')go('grid',{mood:v});else if(a=='sup'){S.id=Math.floor(Math.random()*W.length);render()}
+else if(a=='edit'){E={b:100,c:100,s:100,h:0,bl:0,v:0};S.ed=true;render()}else if(a=='edone'){S.ed=false;render()}
+else if(a=='ereset'){E={b:100,c:100,s:100,h:0,bl:0,v:0};render()}
+else if(a=='theme')go('theme');else if(a=='tsv'){TF=!TF;sv('tf',TF);render()}else if(a=='tap'){if(isLocked('t','aurora'))openPay('t','aurora');else{S.tap=!S.tap;render()}}
+else if(a=='tstd')go('studio',{sp:3,sh:0,ss:3,sn:60});else if(a=='ticn'){S.ipk=1;sv('ip',1);go('icons')}else if(a=='tfnt')go('fonts',{ft:2});
+else if(a=='cp'){S.cp=!S.cp;render()}
+else if(a=='cpick'){const c=CL[+v];c.ids=c.ids.includes(S.id)?c.ids.filter(x=>x!=S.id):[...c.ids,S.id];svC();render()}
+else if(a=='cpnew'){const n=$('#cpn').value.trim();if(!n)toast('Type a name first');else{CL.push({n,ids:[S.id]});svC();render()}}
+else if(a=='cnew'){const n=$('#cnm').value.trim();if(!n)toast('Type a name first');else{CL.push({n,ids:[]});svC();render()}}
+else if(a=='cview'){S.cv=+v;render();scrollTo(0,0)}
+else if(a=='cdel'){if(S.cd!=+v){S.cd=+v;render()}else{CL.splice(+v,1);svC();S.cv=null;S.cd=null;render()}}
+else if(a=='ssc'){S.sc=v;render()}else if(a=='splay'){playSound(+v);render()}
+else if(a=='sfav'){const i=+v;SF=SF.includes(i)?SF.filter(x=>x!=i):[...SF,i];sv('sf',SF);render()}
+else if(a=='sndown'){downloadSound(+v)}
+else if(a=='sset'){S.sq=+v;render()}else if(a=='sx'){S.sq=null;render()}
+else if(a=='sapp'){const i=S.sq;S.sq=null;render();if(isLocked('s',i))openPay('s',i);else if(!APP)toast('Setting a sound works inside the Android app. This web preview is a demo.');else{toast('Preparing sound…');sndWav(i).then(b=>Luxora.setSound(b,SND[i].n.replace(/[^A-Za-z0-9]+/g,'-'),v)).catch(()=>toast('Could not prepare the sound'))}}
+else if(a=='unl')openPay(b.dataset.t,isNaN(+v)?v:+v);
+else if(a=='pro'){S.pw=null;go('pro')}else if(a=='buy')buy(v);
+else if(a=='rest')toast('Restore will work once payments are live.');
+else if(a=='ver'){VT++;if(VT>=7){VT=0;DEV=!DEV;sv('dev',DEV);toast(DEV?'Developer test mode ON':'Developer test mode OFF');render()}}
+else if(a=='entreset'){ENT={pro:false,own:[]};sv('ent',ENT);render()}
+else if(a=='dl2'){if(isLocked('w',S.id))openPay('w',S.id);else if(!APP)toast('Download works inside the Android app. This web preview is a demo.');else{const w=W[S.id];toast('Preparing download…');wPng(w).then(b=>Luxora.saveImage(b,'LUXORA-'+w.name.replace(/[^A-Za-z0-9]+/g,'-'))).catch(()=>toast('Could not prepare the image'))}}
+else if(a=='ap'){if(isLocked('w',S.id))openPay('w',S.id);else if(!APP)toast('Apply works inside the Android app. This web preview is a demo.');else{S.ap=true;render()}}
+else if(a=='apx'){S.ap=false;render()}
+else if(a=='apt'){const w=W[S.id];S.ap=false;render();toast('Applying wallpaper…');wPng(w,S.ed?ef():null).then(b=>Luxora.applyWallpaper(b,v)).catch(()=>toast('Could not prepare the image'))}
+else if(a=='sh'){try{navigator.share?navigator.share({title:'LUXORA · '+W[+v].name}):toast('Share not available in this browser')}catch(x){toast('Could not share')}}});
+document.addEventListener('input',e=>{if(e.target.dataset.e){E[e.target.dataset.e]=+e.target.value;$('#epv').style.filter=ef();$('#evg').style.opacity=E.v/100;return}if(e.target.id=='sps'){S.ss=+e.target.value;return}if(e.target.id=='spn'){S.sn=+e.target.value;stopStudio();startStudio();return}if(e.target.id=='pnm'){sv('nm',e.target.value);$('#pav').textContent=(e.target.value.trim()[0]||'G').toUpperCase();return}if(e.target.id=='ftx'||e.target.id=='fsz'){fv();return}if(e.target.id=='gq'){S.q=e.target.value;S.n=30;$('#res').innerHTML=res()}});
+document.addEventListener('keydown',e=>{if(e.key=='Enter'&&e.target.id=='hq'){go('grid',{q:e.target.value})}});
+$('#photoPicker').addEventListener('change',e=>openPhotoStudio(e.target.files&&e.target.files[0]));document.addEventListener('input',e=>{if(e.target.matches('[data-photo-filter]'))updatePhotoFilter()});
+let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(car,150)});render();
+</script></body></html>

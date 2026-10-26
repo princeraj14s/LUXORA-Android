@@ -1,0 +1,42 @@
+name: Build LUXORA APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Unzip the project
+        run: unzip -o luxora-android.zip -d project
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.9
+
+      - name: Build debug APK
+        shell: bash
+        working-directory: project
+        run: gradle assembleDebug --no-daemon --stacktrace 2>&1 | tee build-log.txt
+
+      - name: Save build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: project/build-log.txt
+
+      - name: Save APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: LUXORA-debug-apk
+          path: project/app/build/outputs/apk/debug/*.apk
